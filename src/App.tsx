@@ -6,18 +6,21 @@ import { QuickDetails } from "./component/QuickDetails";
 import StaticDetails from "./component/StaticDetails";
 import StaticWeekDetails from "./component/StaticWeekDetails";
 import Error from "./component/Error";
+import WeekDetails from "./component/WeekDetails";
 
 const key = "7K6G2YBAY7APWRNHC93TFSTHB";
 function App() {
   const [data, setData] = useState(null);
   const [query, setQuery] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [error, setError] = useState(null);
 
   useEffect(
     function () {
       async function fetchWeather() {
         setIsLoading(true);
+        setError(null);
+
         try {
           const geoRes = await fetch(
             `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${query}?key=${key}`
@@ -25,7 +28,7 @@ function App() {
           const geoData = await geoRes.json();
           setData(geoData);
           setIsLoading(false);
-          console.log(data);
+          console.log(geoData);
         } catch (er) {
           setError("Can Not Fetch Data");
           setIsLoading(false);
@@ -58,13 +61,13 @@ function App() {
             <Loading />
             <StaticWeekDetails />
           </>
-        ) : error ? (
-          <>
-            <Error error={error} />
-            <StaticWeekDetails />
-          </>
         ) : (
-          <StaticWeekDetails />
+          ((error || !data) && (
+            <>
+              <Error error={error} />
+              <StaticWeekDetails />
+            </>
+          )) || <WeekDetails data={data} />
         )}
       </div>
     </div>

@@ -1,15 +1,16 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { FaSearch } from "react-icons/fa";
 import { WiWindy } from "react-icons/wi";
 
-export default function WeatherGrid() {
+export default function StaticWeekDetails() {
   const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
   return (
     <div>
       <div className="flex justify-between mt-8">
-        <span className="text-gray-600">Today</span>
-        <span className="text-gray-600 underline ">Week</span>
+        <span className="text-gray-600 cursor-pointer ">Today</span>
+        <span className="text-gray-600 border-b-2 cursor-pointer border-black ">
+          Week
+        </span>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4  ">
         {daysOfWeek.map((day, index) => (
