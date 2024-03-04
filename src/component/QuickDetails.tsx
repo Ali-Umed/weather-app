@@ -12,26 +12,9 @@ import {
   WiWindy,
 } from "react-icons/wi";
 
-export function QuickDetails({
-  data,
-  query,
-  setQuery,
-}: {
-  data: WeatherData | null;
-  query: string;
-  setQuery: (query: string) => void;
-}) {
-  console.log(data);
-  console.log(setQuery);
+export function QuickDetails({ data }: { data: WeatherData | null }) {
   return (
-    <div className="flex flex-col items-center">
-      <input
-        type="text"
-        placeholder="search for places..."
-        className="border border-gray-300 rounded px-4 py-2 mb-4 w-full md:w-64"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-      />
+    <>
       <h1>
         Adress: {data?.resolvedAddress} {data?.address}
       </h1>
@@ -68,7 +51,7 @@ export function QuickDetails({
         {data ? data.currentConditions.conditions : "sun"}
       </h1>
       <h1 className="text-lg font-semibold">Rain 30%</h1>
-    </div>
+    </>
   );
 }
 
