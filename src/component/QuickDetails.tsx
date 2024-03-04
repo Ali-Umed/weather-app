@@ -42,15 +42,16 @@ export function QuickDetails({ data }: { data: WeatherData | null }) {
         <WiDaySunny size={88} className="mb-4" />
       )}
       <div className="text-2xl font-bold mb-2">
-        {data
-          ? `${Math.round((data.currentConditions.temp - 32) * 0.5555555555)}°C`
-          : "0°C"}
+        {`${Math.round((data?.currentConditions.temp - 32) * 0.5555555555)}°C`}
       </div>
-      <div className="text-sm mb-4">Monday, 16:00</div>
+      <div className="text-lg mb-4 font-semibold">
+        {" "}
+        Last Time Update: {data?.currentConditions.datetime}
+      </div>
       <h1 className="text-lg font-semibold mb-2">
-        {data ? data.currentConditions.conditions : "sun"}
+        {data?.currentConditions.conditions}
       </h1>
-      <h1 className="text-lg font-semibold">Rain 30%</h1>
+      {/* <h1 className="text-lg font-semibold">Rain 30%</h1> */}
     </>
   );
 }
@@ -62,5 +63,6 @@ interface WeatherData {
     icon: string;
     temp: number;
     conditions: string;
+    datetime: string;
   };
 }

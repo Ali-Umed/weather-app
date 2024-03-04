@@ -1,16 +1,18 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useEffect, useState } from "react";
-import { FaReact, FaSearch } from "react-icons/fa";
 import Loading from "./component/Loading";
 
 import { QuickDetails } from "./component/QuickDetails";
 import StaticDetails from "./component/StaticDetails";
+import StaticWeekDetails from "./component/StaticWeekDetails";
+import Error from "./component/Error";
 
 const key = "7K6G2YBAY7APWRNHC93TFSTHB";
 function App() {
   const [data, setData] = useState(null);
   const [query, setQuery] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
 
   useEffect(
     function () {
@@ -23,10 +25,10 @@ function App() {
           const geoData = await geoRes.json();
           setData(geoData);
           setIsLoading(false);
-
-          console.log(geoData);
-        } catch (error) {
-          console.log(error);
+          console.log(data);
+        } catch (er) {
+          setError("Can Not Fetch Data");
+          setIsLoading(false);
         }
       }
       if (query.length < 3) {
@@ -52,25 +54,17 @@ function App() {
         </div>
 
         {isLoading ? (
-          <Loading />
+          <>
+            <Loading />
+            <StaticWeekDetails />
+          </>
+        ) : error ? (
+          <>
+            <Error error={error} />
+            <StaticWeekDetails />
+          </>
         ) : (
-          <div>
-            <div className="flex justify-between mt-8">
-              <span className="text-gray-600">Today</span>
-              <span className="text-gray-600">Week</span>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
-              {[...Array(6)].map((_, index) => (
-                <div key={index} className="bg-white p-4 rounded-lg shadow-md">
-                  <div className="text-center">
-                    <h1 className="text-lg font-semibold mb-2">Sun</h1>
-                    <FaReact size={48} color="blue" className="mb-2" />
-                    <div className="text-lg">15°C - 2°C</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+          <StaticWeekDetails />
         )}
       </div>
     </div>
