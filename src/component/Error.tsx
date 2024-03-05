@@ -1,7 +1,11 @@
 export default function Error({ error }: { error: string }) {
   return (
-    <section className=" items-center px-5 py-12 lg:px-20">
-      <div className="w-full text-yellow-600 border rounded-lg shadow-xl">
+    <section
+      className={`absolute top-0 left-1/2 -translate-x-1/2 items-center px-5 py-12 lg:px-20 z-50 ${
+        error ? "visible" : "invisible"
+      }`}
+    >
+      <div className="w-full text-yellow-600 border rounded-lg shadow-xl bg-white">
         <div className="flex items-center justify-between px-6 py-4 mx-auto">
           <div className="flex">
             <svg
@@ -10,11 +14,11 @@ export default function Error({ error }: { error: string }) {
               width="24"
               height="24"
               viewBox="0 0 24 24"
-              stroke-width="1.5"
+              strokeWidth="1.5"
               stroke="currentColor"
               fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             >
               <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
               <circle cx="12" cy="12" r="9"></circle>
@@ -37,11 +41,11 @@ export default function Error({ error }: { error: string }) {
               width="24"
               height="24"
               viewBox="0 0 24 24"
-              stroke-width="1.5"
+              strokeWidth="1.5"
               stroke="currentColor"
               fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             >
               <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
               <circle cx="12" cy="12" r="9"></circle>

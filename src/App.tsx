@@ -19,7 +19,8 @@ function App() {
 
     async function fetchWeather() {
       setIsLoading(true);
-      setError(null);
+      setData(null);
+      // setError(null);
 
       try {
         const geoRes = await fetch(
@@ -47,10 +48,22 @@ function App() {
     };
   }, [query]);
 
+  useEffect(() => {
+    if (error) {
+      const timer = setTimeout(() => {
+        setError(null);
+      }, 5000);
+
+      return () => {
+        clearTimeout(timer);
+      };
+    }
+  }, [error]);
+
   return (
-    <div className="bg-neutral-100 min-h-screen flex justify-center items-center ">
+    <div className="bg-neutral-100 min-h-screen flex justify-center items-center relative ">
       <div className="bg-white p-8 rounded-xl shadow-2xl w-full  md:w-11/12 lg:w-11/12 xl:w-11/12 grid grid-cols-1 lg:grid-cols-2 gap-12 ">
-        <div className="flex flex-col items-center h-full w-full">
+        <div className="flex flex-col items-center h-full w-full z-0">
           <input
             type="text"
             placeholder="Search for places..."
@@ -58,22 +71,19 @@ function App() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
-          {(error || !data) && (
-            <>
-              <Error error={error} />
-            </>
-          )}
+
+          <Error error={error} />
 
           {data === null ? <StaticDetails /> : <QuickDetails data={data} />}
         </div>
         <div>
+          <Loading isLoading={isLoading} />
           {isLoading ? (
             <>
-              <Loading />
               <StaticWeekDetails />
             </>
           ) : (
-            (error || !data) && (
+            data == null && (
               <>
                 <StaticWeekDetails />
               </>
