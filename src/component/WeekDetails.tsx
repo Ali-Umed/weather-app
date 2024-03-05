@@ -9,7 +9,13 @@ import {
   WiWindy,
 } from "react-icons/wi";
 
-export default function WeekDetails({ data }: { data: daysData | never }) {
+export default function WeekDetails({
+  data,
+  setDay,
+}: {
+  data: daysData | never;
+  setDay: (arg0: number) => void;
+}) {
   const [status, setStatus] = useState("week");
   console.log(data);
   // const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -39,8 +45,9 @@ export default function WeekDetails({ data }: { data: daysData | never }) {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
         {last7Days?.map((day, index) => (
           <div
+            onClick={() => setDay(index)}
             key={index}
-            className={`bg-white p-4 rounded-lg shadow-md items-center justify-center flex ${
+            className={`bg-white p-4 rounded-lg shadow-md items-center justify-center flex  cursor-pointer ${
               index === last7Days.length - 1 ? "col-start-2 col-end-3" : ""
             }`}
           >

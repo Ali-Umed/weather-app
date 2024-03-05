@@ -5,6 +5,7 @@ import StaticDetails from "./component/StaticDetails";
 import StaticWeekDetails from "./component/StaticWeekDetails";
 import Error from "./component/Error";
 import WeekDetails from "./component/WeekDetails";
+import DayWeather from "./component/DayWeather";
 
 const key = "7K6G2YBAY7APWRNHC93TFSTHB";
 
@@ -13,6 +14,7 @@ function App() {
   const [query, setQuery] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [day, setDay] = useState(null);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -52,13 +54,23 @@ function App() {
     if (error) {
       const timer = setTimeout(() => {
         setError(null);
-      }, 5000);
+      }, 2000);
 
       return () => {
         clearTimeout(timer);
       };
     }
   }, [error]);
+
+  console.log(
+    "day is",
+    day,
+    "is loading is",
+    isLoading,
+    "error is",
+    error,
+    data
+  );
 
   return (
     <div className="bg-neutral-100 min-h-screen flex justify-center items-center relative ">
@@ -89,7 +101,10 @@ function App() {
               </>
             )
           )}
-          {!isLoading && !error && data && <WeekDetails data={data} />}
+          {!isLoading && !error && data && day === null && (
+            <WeekDetails data={data} setDay={setDay} />
+          )}
+          {day !== null && <DayWeather day={data?.days?.[day]} />}
         </div>
       </div>
     </div>

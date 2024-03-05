@@ -13,6 +13,8 @@ import {
 } from "react-icons/wi";
 
 export function QuickDetails({ data }: { data: WeatherData | null }) {
+  console.log(data);
+
   return (
     <>
       <h1 className="mt-5 text-3xl font-bold ">
