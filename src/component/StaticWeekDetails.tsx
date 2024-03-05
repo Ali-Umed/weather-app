@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { WiWindy } from "react-icons/wi";
+import { WiDayShowers } from "react-icons/wi";
 
 export default function StaticWeekDetails() {
   const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -22,7 +22,7 @@ export default function StaticWeekDetails() {
           >
             <div className="flex flex-col justify-center items-center h-full">
               <h1 className="text-lg font-semibold mb-2">{day}</h1>
-              <WiWindy size={48} color="blue" className="mb-2" />
+              <WiDayShowers size={128} color="black" className="mb-2" />
               <div className="text-lg">15°C - 2°C</div>
             </div>
           </div>
