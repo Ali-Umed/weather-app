@@ -17,17 +17,21 @@ function App() {
 
   useEffect(
     function () {
+      const controller = new AbortController();
       async function fetchWeather() {
         setIsLoading(true);
         setError(null);
 
         try {
           const geoRes = await fetch(
-            `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${query}?key=${key}`
+            `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${query}?key=${key}`,
+            { signal: controller.signal }
           );
           const geoData = await geoRes.json();
           setData(geoData);
           setIsLoading(false);
+          setError(null);
+
           console.log(geoData);
         } catch (er) {
           setError("Can Not Fetch Data");
@@ -38,12 +42,16 @@ function App() {
         return;
       }
       fetchWeather();
+
+      return function () {
+        controller.abort();
+      };
     },
     [query]
   );
 
   return (
-    <div className="bg-neutral-100 w-full min-h-screen flex justify-center items-center">
+    <div className="bg-neutral-100 w-full h-full flex justify-center items-center">
       <div className="bg-white p-8 rounded-xl shadow-2xl  shadow-slate-400 w-full md:w-3/4 lg:w-1/2 xl:w-2/5 ">
         <div className="flex flex-col items-center">
           <input

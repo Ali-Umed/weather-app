@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   WiCloudy,
   WiDaySunny,
@@ -8,19 +9,30 @@ import {
   WiWindy,
 } from "react-icons/wi";
 
-export default function weekDetails({ data }: { data: daysData | never }) {
+export default function WeekDetails({ data }: { data: daysData | never }) {
+  const [status, setStatus] = useState("week");
   console.log(data);
+  // const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-  const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-
-  // Extract the last 7 items from the data.days array
   const last7Days = data?.days?.slice(0, 7);
 
   return (
     <div>
       <div className="flex justify-between mt-8">
-        <span className="text-gray-600 cursor-pointer">Today</span>
-        <span className="text-gray-600 border-b-2 cursor-pointer border-black">
+        <span
+          onClick={() => setStatus("day")}
+          className={`text-gray-600 cursor-pointer border-black  ${
+            status == "day" ? " border-b-2" : ""
+          }`}
+        >
+          Today
+        </span>
+        <span
+          onClick={() => setStatus("week")}
+          className={`text-gray-600  cursor-pointer border-black  ${
+            status == "week" ? " border-b-2" : ""
+          }`}
+        >
           Week
         </span>
       </div>
