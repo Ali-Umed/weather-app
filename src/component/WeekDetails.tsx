@@ -14,7 +14,7 @@ export default function WeekDetails({
   setDay,
 }: {
   data: daysData | never;
-  setDay: (arg0: number) => void;
+  setDay: (day: number) => void;
 }) {
   const [status, setStatus] = useState("week");
   console.log(data);
@@ -87,7 +87,7 @@ export default function WeekDetails({
   );
 }
 
-interface daysData {
+export interface daysData {
   days: {
     icon: string;
     tempmin: number;

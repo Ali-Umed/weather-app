@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Loading from "./component/Loading";
-import { QuickDetails } from "./component/QuickDetails";
+import { QuickDetails, WeatherData } from "./component/QuickDetails";
 import StaticDetails from "./component/StaticDetails";
 import StaticWeekDetails from "./component/StaticWeekDetails";
 import Error from "./component/Error";
@@ -10,11 +10,11 @@ import DayWeather from "./component/DayWeather";
 const key = "7K6G2YBAY7APWRNHC93TFSTHB";
 
 function App() {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<WeatherData | null>(null);
   const [query, setQuery] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [day, setDay] = useState(null);
+  const [error, setError] = useState<string | null>(null);
+  const [day, setDay] = useState<number | null>(null);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -104,7 +104,9 @@ function App() {
           {!isLoading && !error && data && day === null && (
             <WeekDetails data={data} setDay={setDay} />
           )}
-          {day !== null && <DayWeather day={data?.days?.[day]} />}
+          {day !== null && data && data.days !== undefined && (
+            <DayWeather day={data?.days?.[day]} />
+          )}
         </div>
       </div>
     </div>

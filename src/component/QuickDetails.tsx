@@ -4,11 +4,11 @@ import {
   WiCloudy,
   WiRain,
   WiSnow,
-  WiStrongWind,
+  // WiStrongWind,
   WiFog,
-  WiThunderstorm,
-  WiSprinkle,
-  WiTornado,
+  // WiThunderstorm,
+  // WiSprinkle,
+  // WiTornado,
   WiWindy,
 } from "react-icons/wi";
 
@@ -58,8 +58,9 @@ export function QuickDetails({ data }: { data: WeatherData | null }) {
   );
 }
 
-interface WeatherData {
+export interface WeatherData {
   resolvedAddress: string;
+  days: [];
   address: string;
   currentConditions: {
     icon: string;

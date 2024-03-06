@@ -1,4 +1,3 @@
-import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faSun,
@@ -9,15 +8,15 @@ import {
   faChartLine,
 } from "@fortawesome/free-solid-svg-icons";
 
-import {
-  FaCloud,
-  FaCloudRain,
-  FaCloudSun,
-  FaSmog,
-  FaSnowflake,
-  FaSun,
-  FaWind,
-} from "react-icons/fa";
+// import {
+//   FaCloud,
+//   FaCloudRain,
+//   FaCloudSun,
+//   FaSmog,
+//   FaSnowflake,
+//   FaSun,
+//   FaWind,
+// } from "react-icons/fa";
 // import {
 //   WiDaySunny,
 //   WiNightClear,
@@ -28,11 +27,10 @@ import {
 //   WiWindy,
 // } from "react-icons/wi";
 
-export default function WeatherDayCard({ day }: { day: DayData }) {
+export default function DayWeather({ day }: { day: DayData }) {
   const {
     conditions,
     datetime,
-    icon,
     tempmin,
     tempmax,
     visibility,
@@ -72,27 +70,27 @@ export default function WeatherDayCard({ day }: { day: DayData }) {
   //     }
   //   };
 
-  const getWeatherIcon = (icon: string) => {
-    switch (icon) {
-      case "c01":
-        return FaSun;
-      case "c02":
-        return FaCloudSun;
-      case "c03":
-      case "c04":
-        return FaCloud;
-      case "t01":
-        return FaCloudRain;
-      case "s01":
-        return FaSnowflake;
-      case "f01":
-        return FaWind;
-      case "a01":
-        return FaSmog;
-      default:
-        return FaSun;
-    }
-  };
+  // const getWeatherIcon = (icon: string) => {
+  //   switch (icon) {
+  //     case "c01":
+  //       return FaSun;
+  //     case "c02":
+  //       return FaCloudSun;
+  //     case "c03":
+  //     case "c04":
+  //       return FaCloud;
+  //     case "t01":
+  //       return FaCloudRain;
+  //     case "s01":
+  //       return FaSnowflake;
+  //     case "f01":
+  //       return FaWind;
+  //     case "a01":
+  //       return FaSmog;
+  //     default:
+  //       return FaSun;
+  //   }
+  // };
 
   return (
     <div className="bg-white rounded-xl shadow-md p-4">
@@ -156,7 +154,7 @@ export default function WeatherDayCard({ day }: { day: DayData }) {
   );
 }
 
-interface DayData {
+export interface DayData {
   conditions: string;
   datetime: string;
   icon: string;
