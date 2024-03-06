@@ -6,6 +6,7 @@ import StaticWeekDetails from "./component/StaticWeekDetails";
 import Error from "./component/Error";
 import WeekDetails from "./component/WeekDetails";
 import DayWeather from "./component/DayWeather";
+import NavBar from "./component/NavBar";
 
 const key = "7K6G2YBAY7APWRNHC93TFSTHB";
 
@@ -75,6 +76,9 @@ function App() {
   return (
     <div className="bg-neutral-100 min-h-screen flex justify-center items-center relative ">
       <div className="bg-white p-8 rounded-xl shadow-2xl w-full  md:w-11/12 lg:w-11/12 xl:w-11/12 grid grid-cols-1 lg:grid-cols-2 gap-12 ">
+        <div className="col-span-2">
+          <NavBar />
+        </div>
         <div className="flex flex-col items-center h-full w-full z-0">
           <input
             type="text"
