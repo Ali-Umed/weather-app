@@ -23,7 +23,7 @@ export default function WeekDetails({
 
   return (
     <div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4  overflow-y-auto h-screen ">
         {last7Days?.map((day, index) => (
           <div
             onClick={() => {
@@ -31,7 +31,7 @@ export default function WeekDetails({
               setStatus("day");
             }}
             key={index}
-            className={`bg-white p-4 rounded-lg shadow-md items-center justify-center flex  cursor-pointer ${
+            className={`bg-white p-4 rounded-lg shadow-md items-center overflow-clip justify-center flex  cursor-pointer  ${
               index === last7Days.length - 1
                 ? "lg:col-start-2 lg:col-end-3"
                 : ""
