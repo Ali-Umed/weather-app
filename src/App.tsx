@@ -7,6 +7,7 @@ import Error from "./component/Error";
 import WeekDetails from "./component/WeekDetails";
 import DayWeather from "./component/DayWeather";
 import NavBar from "./component/NavBar";
+import Footer from "./component/Footer";
 
 const key = "7K6G2YBAY7APWRNHC93TFSTHB";
 
@@ -104,6 +105,8 @@ function App() {
             <DayWeather day={data?.days?.[day]} />
           )}
         </div>
+
+        <Footer />
       </div>
     </div>
   );
