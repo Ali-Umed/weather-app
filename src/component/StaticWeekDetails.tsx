@@ -6,11 +6,11 @@ export default function StaticWeekDetails() {
 
   return (
     <div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4  overflow-y-auto h-screen  ">
+      <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4 justify-items-center overflow-y-auto max-h-[445px]   lg:h-screen  lg:max-h-screen  ">
         {daysOfWeek.map((day, index) => (
           <div
             key={index}
-            className={`bg-white p-4  rounded-lg shadow-md  overflow-clip  items-center justify-center flex  ${
+            className={`bg-white p-4 rounded-lg shadow-md items-center overflow-clip justify-center flex w-2/3 md:w-full cursor-pointer  ${
               index === daysOfWeek.length - 1
                 ? " lg:col-start-2 lg:col-end-3"
                 : ""

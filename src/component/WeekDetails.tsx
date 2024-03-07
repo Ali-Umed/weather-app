@@ -35,7 +35,9 @@ export default function WeekDetails({
           }`}
         >
           <div className="flex flex-col justify-center items-center h-full">
-            <h1 className="text-lg font-semibold mb-2">{day.datetime}</h1>
+            <h1 className="text-lg font-semibold mb-2">
+              {index == 0 ? "Today" : index == 1 ? "Tomorrow" : day.datetime}
+            </h1>
             {day.icon === "cloudy" ||
             day.icon === "partly-cloudy-night" ||
             day.icon === "partly-cloudy-day" ? (

@@ -99,7 +99,7 @@ export default function DayWeather({
         </div>
       </div>
       <hr className="my-4" />
-      <div className="grid grid-cols-2 gap-2">
+      <div className="grid grid-cols-2 gap-2 justify-items-center">
         <div className="flex items-center">
           <FontAwesomeIcon
             icon={faChartLine}
