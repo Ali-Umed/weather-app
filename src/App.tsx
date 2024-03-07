@@ -8,6 +8,7 @@ import WeekDetails from "./component/WeekDetails";
 import DayWeather from "./component/DayWeather";
 import NavBar from "./component/NavBar";
 import Footer from "./component/Footer";
+import ToggleDayWeek from "./component/ToggleDayWeek";
 
 const key = "7K6G2YBAY7APWRNHC93TFSTHB";
 
@@ -17,6 +18,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [day, setDay] = useState<number | null>(null);
+  const [status, setStatus] = useState("week");
 
   useEffect(() => {
     const controller = new AbortController();
@@ -89,20 +91,32 @@ function App() {
           <Loading isLoading={isLoading} />
           {isLoading ? (
             <>
+              <ToggleDayWeek status={status} setStatus={setStatus} />
               <StaticWeekDetails />
             </>
           ) : (
             data == null && (
               <>
+                <ToggleDayWeek status={status} setStatus={setStatus} />
                 <StaticWeekDetails />
               </>
             )
           )}
           {!isLoading && !error && data && day === null && (
-            <WeekDetails data={data} setDay={setDay} />
+            <>
+              <ToggleDayWeek status={status} setStatus={setStatus} />
+              <WeekDetails data={data} setDay={setDay} />
+            </>
           )}
           {day !== null && data && data.days !== undefined && (
-            <DayWeather day={data?.days?.[day]} setDay={setDay} />
+            <>
+              <ToggleDayWeek
+                status={status}
+                setStatus={setStatus}
+                setDay={setDay}
+              />
+              <DayWeather day={data?.days?.[day]} setDay={setDay} />
+            </>
           )}
         </div>
 

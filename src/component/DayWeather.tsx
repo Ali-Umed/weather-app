@@ -74,7 +74,7 @@ export default function DayWeather({
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-md p-4">
+    <div className="bg-white rounded-xl shadow-md p-4 mt-3">
       <div className="flex justify-between items-center mb-4">
         <div className="flex items-center">
           {getWeatherIcon(icon)}

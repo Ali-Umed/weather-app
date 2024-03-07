@@ -6,12 +6,6 @@ export default function StaticWeekDetails() {
 
   return (
     <div>
-      <div className="flex justify-between mt-2">
-        <span className="text-gray-600 cursor-pointer ">Today</span>
-        <span className="text-gray-600 border-b-2 cursor-pointer border-black ">
-          Week
-        </span>
-      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4  overflow-y-auto h-screen  ">
         {daysOfWeek.map((day, index) => (
           <div

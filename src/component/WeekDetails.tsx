@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   WiCloudy,
   WiDaySunny,
@@ -16,32 +15,12 @@ export default function WeekDetails({
   data: daysData | never;
   setDay: (day: number) => void;
 }) {
-  const [status, setStatus] = useState("week");
   console.log(data);
-  // const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
   const last7Days = data?.days?.slice(0, 7);
 
   return (
     <div>
-      <div className="flex justify-between mt-2">
-        <span
-          onClick={() => setStatus("day")}
-          className={`text-gray-600 cursor-pointer border-black  ${
-            status == "day" ? " border-b-2" : ""
-          }`}
-        >
-          Today
-        </span>
-        <span
-          onClick={() => setStatus("week")}
-          className={`text-gray-600  cursor-pointer border-black  ${
-            status == "week" ? " border-b-2" : ""
-          }`}
-        >
-          Week
-        </span>
-      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
         {last7Days?.map((day, index) => (
           <div
