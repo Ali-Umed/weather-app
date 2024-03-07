@@ -1,11 +1,15 @@
+import { daysData } from "./WeekDetails";
+
 export default function ToggleDayWeek({
+  data,
   status,
   setStatus,
   setDay,
 }: {
+  data: daysData | null;
   status: string;
   setStatus: (arg: string) => void;
-  setDay: (arg: null) => void;
+  setDay: (arg: null | number) => void;
 }) {
   function handleWeekClick() {
     setStatus("week");
@@ -15,12 +19,17 @@ export default function ToggleDayWeek({
   return (
     <div className="flex justify-between mt-2">
       <span
-        onClick={() => setStatus("day")}
+        onClick={() => {
+          setStatus("day");
+          if (data) {
+            setDay(0);
+          }
+        }}
         className={`text-gray-600 cursor-pointer border-black  ${
           status == "day" ? " border-b-2" : ""
         }`}
       >
-        Today
+        Day
       </span>
       <span
         onClick={handleWeekClick}

@@ -13,7 +13,7 @@ export default function WeekDetails({
   setDay,
   setStatus,
 }: {
-  data: daysData | never;
+  data: daysData | null;
   setDay: (day: number) => void;
   setStatus: (status: string) => void;
 }) {

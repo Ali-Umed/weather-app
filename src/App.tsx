@@ -92,6 +92,7 @@ function App() {
           {isLoading ? (
             <>
               <ToggleDayWeek
+                data={data}
                 setDay={setDay}
                 status={status}
                 setStatus={setStatus}
@@ -102,6 +103,7 @@ function App() {
             data == null && (
               <>
                 <ToggleDayWeek
+                  data={data}
                   setDay={setDay}
                   status={status}
                   setStatus={setStatus}
@@ -113,6 +115,7 @@ function App() {
           {!isLoading && !error && data && day === null && (
             <>
               <ToggleDayWeek
+                data={data}
                 setDay={setDay}
                 status={status}
                 setStatus={setStatus}
@@ -126,6 +129,7 @@ function App() {
                 status={status}
                 setStatus={setStatus}
                 setDay={setDay}
+                data={data}
               />
               <DayWeather
                 day={data?.days?.[day]}
