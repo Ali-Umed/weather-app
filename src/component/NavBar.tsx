@@ -11,7 +11,7 @@ export default function NavBar({
   return (
     <div>
       <nav className=" bg-[#fff] border-gray-200">
-        <div className="max-w-screen-lg flex flex-wrap items-center justify-between mx-auto p-4">
+        <div className="max-w-screen-lg flex  items-center justify-between mx-auto p-4">
           <a href="#" className="flex items-center">
             <FiSun className="h-8 w-8 text-[#90c0df] mr-3" />
             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
