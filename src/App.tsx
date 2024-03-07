@@ -102,7 +102,7 @@ function App() {
             <WeekDetails data={data} setDay={setDay} />
           )}
           {day !== null && data && data.days !== undefined && (
-            <DayWeather day={data?.days?.[day]} />
+            <DayWeather day={data?.days?.[day]} setDay={setDay} />
           )}
         </div>
 

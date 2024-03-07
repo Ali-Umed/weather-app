@@ -5,6 +5,8 @@ import {
   faCloud,
   faSmog,
   faChartLine,
+  faTemperature0,
+  faTimes,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -17,7 +19,13 @@ import {
   WiNightClear,
 } from "react-icons/wi";
 
-export default function DayWeather({ day }: { day: DayData }) {
+export default function DayWeather({
+  day,
+  setDay,
+}: {
+  day: DayData;
+  setDay: (arg: null) => void;
+}) {
   const {
     conditions,
     datetime,
@@ -76,7 +84,13 @@ export default function DayWeather({ day }: { day: DayData }) {
           </div>
         </div>
         <div className="text-lg font-semibold">
+          <FontAwesomeIcon icon={faTemperature0} className="mr-2 " />
           {convertToFahrenheit(tempmin)}°C - {convertToFahrenheit(tempmax)}°C
+          <FontAwesomeIcon
+            icon={faTimes}
+            className="ml-4 text-red-300 size-7 cursor-pointer"
+            onClick={() => setDay(null)}
+          />
         </div>
       </div>
       <hr className="my-4" />
@@ -104,7 +118,7 @@ export default function DayWeather({ day }: { day: DayData }) {
           <span>{solarenergy}</span>
         </div>
         <div className="flex items-center">
-          <FontAwesomeIcon icon={faWind} className="mr-2 text-blue-500" />
+          <FontAwesomeIcon icon={faWind} className="mr-2 " />
           <span>{pressure}</span>
         </div>
         <div className="flex items-center">
@@ -120,15 +134,15 @@ export default function DayWeather({ day }: { day: DayData }) {
           <span>{visibility}</span>
         </div>
         <div className="flex items-center">
-          <FontAwesomeIcon icon={faWind} className="mr-2 text-blue-500" />
+          <FontAwesomeIcon icon={faWind} className="mr-2 " />
           <span>{windspeed}</span>
         </div>
         <div className="flex items-center">
-          <FontAwesomeIcon icon={faWind} className="mr-2 text-blue-500" />
+          <FontAwesomeIcon icon={faWind} className="mr-2 " />
           <span>{windgust}</span>
         </div>
         <div className="flex items-center">
-          <FontAwesomeIcon icon={faWind} className="mr-2 text-blue-500" />
+          <FontAwesomeIcon icon={faWind} className="mr-2 " />
           <span>{severerisk}</span>
         </div>
         <div className="flex items-center">
