@@ -23,7 +23,7 @@ export default function ToggleDayWeek({
         Today
       </span>
       <span
-        onClick={() => handleWeekClick()}
+        onClick={handleWeekClick}
         className={`text-gray-600  cursor-pointer border-black  ${
           status == "week" ? " border-b-2" : ""
         }`}

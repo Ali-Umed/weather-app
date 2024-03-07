@@ -91,21 +91,33 @@ function App() {
           <Loading isLoading={isLoading} />
           {isLoading ? (
             <>
-              <ToggleDayWeek status={status} setStatus={setStatus} />
+              <ToggleDayWeek
+                setDay={setDay}
+                status={status}
+                setStatus={setStatus}
+              />
               <StaticWeekDetails />
             </>
           ) : (
             data == null && (
               <>
-                <ToggleDayWeek status={status} setStatus={setStatus} />
+                <ToggleDayWeek
+                  setDay={setDay}
+                  status={status}
+                  setStatus={setStatus}
+                />
                 <StaticWeekDetails />
               </>
             )
           )}
           {!isLoading && !error && data && day === null && (
             <>
-              <ToggleDayWeek status={status} setStatus={setStatus} />
-              <WeekDetails data={data} setDay={setDay} />
+              <ToggleDayWeek
+                setDay={setDay}
+                status={status}
+                setStatus={setStatus}
+              />
+              <WeekDetails data={data} setDay={setDay} setStatus={setStatus} />
             </>
           )}
           {day !== null && data && data.days !== undefined && (
@@ -115,7 +127,11 @@ function App() {
                 setStatus={setStatus}
                 setDay={setDay}
               />
-              <DayWeather day={data?.days?.[day]} setDay={setDay} />
+              <DayWeather
+                day={data?.days?.[day]}
+                setDay={setDay}
+                setStatus={setStatus}
+              />
             </>
           )}
         </div>

@@ -22,9 +22,11 @@ import {
 export default function DayWeather({
   day,
   setDay,
+  setStatus,
 }: {
   day: DayData;
   setDay: (arg: null) => void;
+  setStatus: (status: string) => void;
 }) {
   const {
     conditions,
@@ -89,7 +91,10 @@ export default function DayWeather({
           <FontAwesomeIcon
             icon={faTimes}
             className="ml-4 text-red-300 size-7 cursor-pointer"
-            onClick={() => setDay(null)}
+            onClick={() => {
+              setDay(null);
+              setStatus("week");
+            }}
           />
         </div>
       </div>

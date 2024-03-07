@@ -11,9 +11,11 @@ import {
 export default function WeekDetails({
   data,
   setDay,
+  setStatus,
 }: {
   data: daysData | never;
   setDay: (day: number) => void;
+  setStatus: (status: string) => void;
 }) {
   console.log(data);
 
@@ -24,7 +26,10 @@ export default function WeekDetails({
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
         {last7Days?.map((day, index) => (
           <div
-            onClick={() => setDay(index)}
+            onClick={() => {
+              setDay(index);
+              setStatus("day");
+            }}
             key={index}
             className={`bg-white p-4 rounded-lg shadow-md items-center justify-center flex  cursor-pointer ${
               index === last7Days.length - 1
