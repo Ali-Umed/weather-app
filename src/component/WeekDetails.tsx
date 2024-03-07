@@ -24,7 +24,7 @@ export default function WeekDetails({
 
   return (
     <div>
-      <div className="flex justify-between mt-8">
+      <div className="flex justify-between mt-2">
         <span
           onClick={() => setStatus("day")}
           className={`text-gray-600 cursor-pointer border-black  ${

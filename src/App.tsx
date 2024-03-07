@@ -76,16 +76,16 @@ function App() {
 
   return (
     <div className="bg-[#fff] min-h-screen flex justify-center items-center relative ">
-      <div className="bg-[#F1F9FE]  rounded-xl shadow-2xl w-full  md:w-11/12 lg:w-11/12 xl:w-9/12 grid grid-cols-2 lg:grid-cols-3 gap-12 ">
+      <div className="bg-[#F1F9FE]  rounded-xl shadow-2xl w-full  md:w-11/12 lg:w-11/12 xl:w-10/12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
         <div className="col-span-3">
           <NavBar query={query} setQuery={setQuery} />
         </div>
-        <div className="flex flex-col items-center h-full w-full z-0 col-span-1 p-8">
+        <div className="flex flex-col items-center h-full w-full z-0 col-span-2 md:col-span-1 p-2 sm:p-3 md:p-6">
           <Error error={error} />
 
           {data === null ? <StaticDetails /> : <QuickDetails data={data} />}
         </div>
-        <div className="col-span-2 p-8">
+        <div className="col-span-2 p-2 sm:p-3 md:p-6">
           <Loading isLoading={isLoading} />
           {isLoading ? (
             <>

@@ -39,7 +39,7 @@ export function QuickDetails({ data }: { data: WeatherData | null }) {
 
   return (
     <>
-      <h1 className="mt-10 text-2xl">
+      <h1 className="mt-0 text-2xl">
         Address: <span className="font-medium">{data?.resolvedAddress}</span>
       </h1>
       {getWeatherIcon()}
