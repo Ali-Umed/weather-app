@@ -18,16 +18,16 @@ export default function Footer() {
       </svg>
       <div className="bg-gradient-to-b bg-white   pt-1">
         <div className="container m-auto space-y-8 px-6 text-gray-600 dark:text-gray-400 md:px-12 lg:px-20">
-          <div className="grid grid-cols-8 gap-6 md:gap-0">
+          <div className="grid grid-cols-8 gap-0 md:gap-0">
             <div className="col-span-8   md:col-span-2 lg:col-span-3">
-              <div className="flex items-center  gap-6 border-b border-white  py-6 md:block md:space-y-6 justify-center md:border-none md:py-0">
+              <div className="flex items-center  gap-6 border-b border-white  py-3 md:block md:space-y-6 justify-center md:border-none md:py-0">
                 <div className="p-2">
                   <FiSun className="h-8 w-8 text-[#90c0df] mr-3" />
                 </div>
               </div>
             </div>
             <div className="col-span-8 md:col-span-6 lg:col-span-5 bg-white ">
-              <div className="flex justify-between  py-4 pb-8 md:pl-16 bg-white">
+              <div className="flex justify-between  py-2 pb-8 md:pl-16 bg-white">
                 <span>&copy; Wather App 2024</span>
                 <div className="flex gap-6">
                   <a
