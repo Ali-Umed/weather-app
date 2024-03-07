@@ -3,7 +3,7 @@ import { WiDaySunny } from "react-icons/wi";
 export default function StaticDetails() {
   return (
     <div className="flex flex-col items-center">
-      <h1 className="mt-5">Adress: London</h1>
+      <h1 className="mt-10">Adress: London</h1>
 
       <WiDaySunny size={160} className="mb-4" />
 

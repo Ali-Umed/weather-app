@@ -12,12 +12,14 @@ export default function StaticWeekDetails() {
           Week
         </span>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4  ">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4  ">
         {daysOfWeek.map((day, index) => (
           <div
             key={index}
             className={`bg-white p-4 rounded-lg shadow-md  items-center justify-center flex ${
-              index === daysOfWeek.length - 1 ? " col-start-2 col-end-3" : ""
+              index === daysOfWeek.length - 1
+                ? " lg:col-start-2 lg:col-end-3"
+                : ""
             }`}
           >
             <div className="flex flex-col justify-center items-center h-full">

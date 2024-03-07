@@ -17,7 +17,7 @@ export function QuickDetails({ data }: { data: WeatherData | null }) {
 
   return (
     <>
-      <h1 className="mt-5 text-3xl font-bold ">
+      <h1 className="mt-10 text-3xl font-bold ">
         Adress: {data?.resolvedAddress}
       </h1>
       {data ? (
