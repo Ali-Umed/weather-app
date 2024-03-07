@@ -7,7 +7,6 @@ export default function NavBar({
 }: {
   query: string;
   setQuery: (que: string) => void;
-  closeModal: () => void;
 }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 

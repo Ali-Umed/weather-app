@@ -1,10 +1,10 @@
 import {
+  faSun,
+  faCloudSun,
+  faWind,
+  faCloud,
   faSmog,
   faChartLine,
-  faSun,
-  faCloud,
-  faWind,
-  faCloudSun,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -32,6 +32,10 @@ export default function DayWeather({ day }: { day: DayData }) {
     pressure,
     dew,
     cloudcover,
+    windspeed,
+    windgust,
+    severerisk,
+    humidity,
   } = day;
 
   const convertToFahrenheit = (temp: number) => {
@@ -41,21 +45,23 @@ export default function DayWeather({ day }: { day: DayData }) {
   const getWeatherIcon = (icon: string) => {
     switch (icon) {
       case "cloudy":
-        return <WiCloudy className="w-12 h-12 mr-4 text-blue-500" />;
+      case "partly-cloudy-night":
+      case "partly-cloudy-day":
+        return <WiCloudy className="w-12 h-12 mr-4" />;
       case "snow":
-        return <WiSnow className="w-12 h-12 mr-4 text-blue-500" />;
+        return <WiSnow className="w-12 h-12 mr-4" />;
       case "fog":
-        return <WiFog className="w-12 h-12 mr-4 text-blue-500" />;
+        return <WiFog className="w-12 h-12 mr-4" />;
       case "rain":
-        return <WiRain className="w-12 h-12 mr-4 text-blue-500" />;
+        return <WiRain className="w-12 h-12 mr-4" />;
       case "clear-day":
-        return <WiDaySunny className="w-12 h-12 mr-4 text-blue-500" />;
+        return <WiDaySunny className="w-12 h-12 mr-4" />;
       case "clear-night":
-        return <WiNightClear className="w-12 h-12 mr-4 text-blue-500" />;
+        return <WiNightClear className="w-12 h-12 mr-4" />;
       case "wind":
-        return <WiWindy className="w-12 h-12 mr-4 text-blue-500" />;
+        return <WiWindy className="w-12 h-12 mr-4" />;
       default:
-        return <WiDaySunny className="w-12 h-12 mr-4 text-blue-500" />;
+        return <WiDaySunny className="w-12 h-12 mr-4" />;
     }
   };
 
@@ -113,6 +119,22 @@ export default function DayWeather({ day }: { day: DayData }) {
           <FontAwesomeIcon icon={faCloudSun} className="mr-2 text-gray-500" />
           <span>{visibility}</span>
         </div>
+        <div className="flex items-center">
+          <FontAwesomeIcon icon={faWind} className="mr-2 text-blue-500" />
+          <span>{windspeed}</span>
+        </div>
+        <div className="flex items-center">
+          <FontAwesomeIcon icon={faWind} className="mr-2 text-blue-500" />
+          <span>{windgust}</span>
+        </div>
+        <div className="flex items-center">
+          <FontAwesomeIcon icon={faWind} className="mr-2 text-blue-500" />
+          <span>{severerisk}</span>
+        </div>
+        <div className="flex items-center">
+          <FontAwesomeIcon icon={faSmog} className="mr-2 text-gray-500" />
+          <span>{humidity}</span>
+        </div>
       </div>
     </div>
   );
@@ -132,4 +154,8 @@ export interface DayData {
   pressure: number;
   dew: number;
   cloudcover: number;
+  windspeed: string;
+  windgust: string;
+  severerisk: string;
+  humidity: string;
 }
