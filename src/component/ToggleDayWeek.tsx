@@ -20,8 +20,8 @@ export default function ToggleDayWeek({
     <div className="flex justify-between mt-2">
       <span
         onClick={() => {
-          setStatus("day");
           if (data) {
+            setStatus("day");
             setDay(0);
           }
         }}
