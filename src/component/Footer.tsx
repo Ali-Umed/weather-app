@@ -2,7 +2,7 @@ import { FiSun } from "react-icons/fi";
 
 export default function Footer() {
   return (
-    <footer className="col-span-3">
+    <footer className="col-span-3" id="footer">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="-mb-0.5 w-full"

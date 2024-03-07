@@ -1,59 +1,63 @@
+import React from "react";
 import {
   WiDaySunny,
   WiNightClear,
   WiCloudy,
   WiRain,
   WiSnow,
-  // WiStrongWind,
   WiFog,
-  // WiThunderstorm,
-  // WiSprinkle,
-  // WiTornado,
   WiWindy,
 } from "react-icons/wi";
 
 export function QuickDetails({ data }: { data: WeatherData | null }) {
-  console.log(data);
+  const getWeatherIcon = () => {
+    switch (data?.currentConditions.icon) {
+      case "cloudy":
+      case "partly-cloudy-night":
+      case "partly-cloudy-day":
+        return <WiCloudy size={160} className="mt-4" />;
+      case "snow":
+        return <WiSnow size={160} className="mt-4" />;
+      case "fog":
+        return <WiFog size={160} className="mt-4" />;
+      case "rain":
+        return <WiRain size={160} className="mt-4" />;
+      case "clear-day":
+        return <WiDaySunny size={160} className="mt-4" />;
+      case "clear-night":
+        return <WiNightClear size={160} className="mt-4" />;
+      case "wind":
+        return <WiWindy size={160} className="mt-4" />;
+      default:
+        return <WiDaySunny size={88} className="mt-4" />;
+    }
+  };
+
+  const convertToFahrenheit = (temp: number) => {
+    return `${Math.round((temp - 32) * 0.5555555555)}°C`;
+  };
 
   return (
     <>
-      <h1 className="mt-10 text-3xl font-bold ">
-        Adress: {data?.resolvedAddress}
+      <h1 className="mt-10 text-2xl">
+        Address: <span className="font-medium">{data?.resolvedAddress}</span>
       </h1>
-      {data ? (
-        data.currentConditions.icon === "cloudy" ||
-        data.currentConditions.icon === "partly-cloudy-night" ||
-        data.currentConditions.icon === "partly-cloudy-day" ? (
-          <WiCloudy size={160} className="mb-4" />
-        ) : data.currentConditions.icon === "snow" ? (
-          <WiSnow size={160} className="mb-4" />
-        ) : data.currentConditions.icon === "fog" ? (
-          <WiFog size={160} className="mb-4" />
-        ) : data.currentConditions.icon === "rain" ? (
-          <WiRain size={160} className="mb-4" />
-        ) : data.currentConditions.icon === "clear-day" ? (
-          <WiDaySunny size={160} className="mb-4" />
-        ) : data.currentConditions.icon === "clear-night" ? (
-          <WiNightClear size={160} className="mb-4" />
-        ) : data.currentConditions.icon === "wind" ? (
-          <WiWindy size={160} className="mb-4" />
-        ) : (
-          <WiDaySunny size={88} className="mb-4" />
-        )
-      ) : (
-        <WiDaySunny size={88} className="mb-4" />
-      )}
+      {getWeatherIcon()}
       <div className="text-5xl font-bold mt-4">
-        {`${Math.round((data?.currentConditions.temp - 32) * 0.5555555555)}°C`}
+        {convertToFahrenheit(data?.currentConditions.temp)}
       </div>
-      <div className="text-2xl  font-semibold mt-5">
-        {" "}
+      <div className="text-xl font-semibold mt-5">
         Last Time Update: {data?.currentConditions.datetime}
       </div>
       <h1 className="text-2xl font-semibold mt-5">
         {data?.currentConditions.conditions}
       </h1>
-      {/* <h1 className="text-lg font-semibold">Rain 30%</h1> */}
+      <div className="text-xl font-semibold mt-5">
+        Sunrise: {data?.currentConditions.sunrise}
+      </div>
+      <div className="text-xl font-semibold mt-5">
+        Sunset: {data?.currentConditions.sunset}
+      </div>
     </>
   );
 }
@@ -67,5 +71,7 @@ export interface WeatherData {
     temp: number;
     conditions: string;
     datetime: string;
+    sunrise: string;
+    sunset: string;
   };
 }

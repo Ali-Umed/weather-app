@@ -46,7 +46,7 @@ export default function NavBar({
             <div className="relative  block">
               <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                 <svg
-                  className="w-4 h-4 text-gray-500 dark:text-gray-400"
+                  className="w-4 h-4 text-gray-500 "
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -67,7 +67,7 @@ export default function NavBar({
                 onChange={(e) => setQuery(e.target.value)}
                 type="text"
                 id="search-navbar"
-                className="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-[#F1F9FE] focus:ring-blue-500 focus:border-blue-500
+                className="block w-full p-2 pl-10 text-sm text-gray-900 border border-[#90c0df]   rounded-lg bg-[#F1F9FE] focus:ring-[#90c0df] focus:outline-[#90c0df] focus:border-[#90c0df focus:border-red-500]
                 "
                 // dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
                 placeholder="Search..."
@@ -106,7 +106,7 @@ export default function NavBar({
               <li>
                 <a
                   href="#"
-                  className="block py-2 pl-3 pr-4 text-gray-600  hover:text-blue-700 rounded  md:p-0 "
+                  className="block py-2 pl-3 pr-4 text-gray-400  hover:text-[#84b7c4] rounded  md:p-0 "
                   aria-current="page"
                 >
                   Home
@@ -114,8 +114,8 @@ export default function NavBar({
               </li>
               <li>
                 <a
-                  href="#"
-                  className="block py-2 pl-3 pr-4 text-gray-400 rounded  hover:text-blue-700 md:p-0    "
+                  href="#footer"
+                  className="block py-2 pl-3 pr-4 text-gray-400 rounded  hover:text-[#84b7c4]  md:p-0    "
                 >
                   About
                 </a>
