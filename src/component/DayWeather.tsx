@@ -1,36 +1,27 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faSun,
-  faCloudSun,
-  faCloud,
-  faWind,
   faSmog,
   faChartLine,
+  faSun,
+  faCloud,
+  faWind,
+  faCloudSun,
 } from "@fortawesome/free-solid-svg-icons";
-
-// import {
-//   FaCloud,
-//   FaCloudRain,
-//   FaCloudSun,
-//   FaSmog,
-//   FaSnowflake,
-//   FaSun,
-//   FaWind,
-// } from "react-icons/fa";
-// import {
-//   WiDaySunny,
-//   WiNightClear,
-//   WiCloudy,
-//   WiRain,
-//   WiSnow,
-//   WiFog,
-//   WiWindy,
-// } from "react-icons/wi";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  WiDaySunny,
+  WiCloudy,
+  WiRain,
+  WiSnow,
+  WiFog,
+  WiWindy,
+  WiNightClear,
+} from "react-icons/wi";
 
 export default function DayWeather({ day }: { day: DayData }) {
   const {
     conditions,
     datetime,
+    icon,
     tempmin,
     tempmax,
     visibility,
@@ -43,63 +34,36 @@ export default function DayWeather({ day }: { day: DayData }) {
     cloudcover,
   } = day;
 
-  // Function to convert Fahrenheit to Celsius
   const convertToFahrenheit = (temp: number) => {
     return Math.round((temp - 32) * 0.5555555555);
   };
 
-  // Map weather conditions to corresponding icons
-  //   const WeatherIcon = (icon: string) => {
-  //     switch (icon) {
-  //       case "cloudy":
-  //         return <WiCloudy size={48} />;
-  //       case "snow":
-  //         return <WiSnow size={48} />;
-  //       case "fog":
-  //         return <WiFog size={48} />;
-  //       case "rain":
-  //         return <WiRain size={48} />;
-  //       case "clear-day":
-  //         return <WiDaySunny size={48} />;
-  //       case "clear-night":
-  //         return <WiNightClear size={48} />;
-  //       case "wind":
-  //         return <WiWindy size={48} />;
-  //       default:
-  //         return <WiDaySunny size={48} />;
-  //     }
-  //   };
-
-  // const getWeatherIcon = (icon: string) => {
-  //   switch (icon) {
-  //     case "c01":
-  //       return FaSun;
-  //     case "c02":
-  //       return FaCloudSun;
-  //     case "c03":
-  //     case "c04":
-  //       return FaCloud;
-  //     case "t01":
-  //       return FaCloudRain;
-  //     case "s01":
-  //       return FaSnowflake;
-  //     case "f01":
-  //       return FaWind;
-  //     case "a01":
-  //       return FaSmog;
-  //     default:
-  //       return FaSun;
-  //   }
-  // };
+  const getWeatherIcon = (icon: string) => {
+    switch (icon) {
+      case "cloudy":
+        return <WiCloudy className="w-12 h-12 mr-4 text-blue-500" />;
+      case "snow":
+        return <WiSnow className="w-12 h-12 mr-4 text-blue-500" />;
+      case "fog":
+        return <WiFog className="w-12 h-12 mr-4 text-blue-500" />;
+      case "rain":
+        return <WiRain className="w-12 h-12 mr-4 text-blue-500" />;
+      case "clear-day":
+        return <WiDaySunny className="w-12 h-12 mr-4 text-blue-500" />;
+      case "clear-night":
+        return <WiNightClear className="w-12 h-12 mr-4 text-blue-500" />;
+      case "wind":
+        return <WiWindy className="w-12 h-12 mr-4 text-blue-500" />;
+      default:
+        return <WiDaySunny className="w-12 h-12 mr-4 text-blue-500" />;
+    }
+  };
 
   return (
     <div className="bg-white rounded-xl shadow-md p-4">
-      <div className="flex justify-between">
+      <div className="flex justify-between items-center mb-4">
         <div className="flex items-center">
-          <FontAwesomeIcon
-            icon={faSmog}
-            className="w-12 h-12 mr-4 text-blue-500"
-          />
+          {getWeatherIcon(icon)}
           <div>
             <p className="text-lg font-semibold">{conditions}</p>
             <p className="text-sm">{datetime}</p>
