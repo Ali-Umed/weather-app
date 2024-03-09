@@ -32,8 +32,8 @@ export function QuickDetails({ data }: { data: WeatherData | null }) {
     }
   };
 
-  const convertToFahrenheit = (temp: number) => {
-    return `${Math.round((temp - 32) * 0.5555555555)}°C`;
+  const convertToFahrenheit = (temp: number | undefined) => {
+    return `${Math.round((temp ?? -32) * 0.5555555555)}°C`;
   };
 
   return (

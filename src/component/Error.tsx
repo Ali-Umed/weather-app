@@ -25,7 +25,7 @@ export default function Error({ error }: { error: string | null }) {
               <line x1="12" y1="8" x2="12.01" y2="8"></line>
               <polyline points="11 12 12 12 12 16 13 16"></polyline>
             </svg>
-            <p className="text-sm font-semibold tracking-wide uppercase">
+            <p className=" text-[10px] md:text-sm  font-semibold tracking-wide uppercase">
               <strong>Warning:</strong> {error}
             </p>
           </div>

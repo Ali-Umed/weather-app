@@ -39,7 +39,7 @@ export default function NavBar({
 
   return (
     <div>
-      <nav className="bg-[#fff] border-gray-200">
+      <nav className="bg-white border-gray-200">
         <div className="max-w-screen-lg flex items-center justify-between mx-auto p-4">
           <a href="#" className="flex items-center" onClick={handleHomeClick}>
             <FiSun className="h-8 w-8 text-[#90c0df] mr-3" />
@@ -103,7 +103,7 @@ export default function NavBar({
           <div
             className={`${
               isMenuOpen
-                ? "flex z-50 absolute  right-0 -top-2 md:hidden  "
+                ? "flex z-50 absolute  right-0 -top-4 md:hidden  "
                 : "hidden"
             } md:flex md:w-auto md:order-1`}
             id="navbar-search"

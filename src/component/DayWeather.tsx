@@ -1,10 +1,8 @@
 import {
-  faSun,
   faCloudSun,
   faWind,
   faCloud,
   faSmog,
-  faChartLine,
   faTemperature0,
   faTimes,
   faSolarPanel,
