@@ -7,6 +7,7 @@ import {
   faChartLine,
   faTemperature0,
   faTimes,
+  faSolarPanel,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -17,6 +18,9 @@ import {
   WiFog,
   WiWindy,
   WiNightClear,
+  WiSunrise,
+  WiSunset,
+  WiStrongWind,
 } from "react-icons/wi";
 
 export default function DayWeather({
@@ -86,7 +90,7 @@ export default function DayWeather({
           </div>
         </div>
         <div className="text-lg font-semibold">
-          <FontAwesomeIcon icon={faTemperature0} className="mr-2 " />
+          <FontAwesomeIcon icon={faTemperature0} className="mr-4 size-7 " />
           {convertToFahrenheit(tempmin)}°C - {convertToFahrenheit(tempmax)}°C
           <FontAwesomeIcon
             icon={faTimes}
@@ -101,57 +105,75 @@ export default function DayWeather({
       <hr className="my-4" />
       <div className="grid grid-cols-2 gap-2 justify-items-center">
         <div className="flex items-center">
-          <FontAwesomeIcon
-            icon={faChartLine}
-            className="mr-2 text-yellow-500"
-          />
+          <WiSunrise className="w-12 h-12 mr-4 text-yellow-500" />
           <span>{sunrise}</span>
         </div>
         <div className="flex items-center">
-          <FontAwesomeIcon
-            icon={faChartLine}
-            className="mr-2 text-yellow-500"
-          />
+          <WiSunset className="w-12 h-12 mr-4 text-yellow-600" />
           <span>{sunset}</span>
         </div>
         <div className="flex items-center">
-          <FontAwesomeIcon icon={faChartLine} className="mr-2 text-green-500" />
+          <FontAwesomeIcon
+            icon={faSolarPanel}
+            className="mr-4 text-green-700 size-8"
+          />
           <span>{solarradiation}</span>
         </div>
         <div className="flex items-center">
-          <FontAwesomeIcon icon={faSun} className="mr-2 text-yellow-500" />
+          <FontAwesomeIcon
+            icon={faSolarPanel}
+            className="mr-4 text-green-700 size-8 "
+          />
           <span>{solarenergy}</span>
         </div>
         <div className="flex items-center">
-          <FontAwesomeIcon icon={faWind} className="mr-2 " />
+          <FontAwesomeIcon
+            icon={faWind}
+            className="mr-4 size-7 text-gray-500 "
+          />
           <span>{pressure}</span>
         </div>
         <div className="flex items-center">
-          <FontAwesomeIcon icon={faSmog} className="mr-2 text-gray-500" />
+          <FontAwesomeIcon
+            icon={faSmog}
+            className="mr-4 size-7 text-gray-500"
+          />
           <span>{dew}</span>
         </div>
         <div className="flex items-center">
-          <FontAwesomeIcon icon={faCloud} className="mr-2 text-gray-500" />
+          <FontAwesomeIcon
+            icon={faCloud}
+            className="mr-4 size-7 text-gray-500"
+          />
           <span>{cloudcover}</span>
         </div>
         <div className="flex items-center">
-          <FontAwesomeIcon icon={faCloudSun} className="mr-2 text-gray-500" />
+          <FontAwesomeIcon
+            icon={faCloudSun}
+            className="mr-4 size-7 text-gray-500"
+          />
           <span>{visibility}</span>
         </div>
         <div className="flex items-center">
-          <FontAwesomeIcon icon={faWind} className="mr-2 " />
+          <WiWindy className="w-12 h-12 mr-4 text-gray-500" />
           <span>{windspeed}</span>
         </div>
         <div className="flex items-center">
-          <FontAwesomeIcon icon={faWind} className="mr-2 " />
+          <WiStrongWind className="w-12 h-12 mr-4 text-gray-500" />
           <span>{windgust}</span>
         </div>
         <div className="flex items-center">
-          <FontAwesomeIcon icon={faWind} className="mr-2 " />
+          <FontAwesomeIcon
+            icon={faWind}
+            className="mr-4 size-7 text-gray-500 "
+          />
           <span>{severerisk}</span>
         </div>
         <div className="flex items-center">
-          <FontAwesomeIcon icon={faSmog} className="mr-2 text-gray-500" />
+          <FontAwesomeIcon
+            icon={faSmog}
+            className="mr-4 size-7 text-gray-500"
+          />
           <span>{humidity}</span>
         </div>
       </div>
