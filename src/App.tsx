@@ -92,7 +92,7 @@ function App() {
       <div
         className={`${
           isDayMode ? "bg-[#f1f9fe]" : "bg-[rgb(25,27,35)]"
-        } min-h-[950px] rounded-xl shadow-2xl w-full md:w-11/12 lg:w-11/12 xl:w-10/12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3`}
+        } min-h-[950px] rounded-xl shadow-2xl w-full md:w-11/12 lg:w-11/12 xl:w-10/12 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3`}
       >
         <div className="col-span-3">
           <NavBar
@@ -102,7 +102,7 @@ function App() {
             toggleDayMode={toggleDayMode}
           />
         </div>
-        <div className="flex flex-col items-center h-full w-full z-0 col-span-2 md:col-span-1 p-2 sm:p-3 md:p-6">
+        <div className="flex flex-col items-center h-full w-full z-0 col-span-2 md:col-span-1 p-2 sm:p-3 md:p-6 lg:py-20">
           <Error error={error} isDayMode={isDayMode} />
 
           {data === null ? (
