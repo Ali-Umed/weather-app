@@ -25,7 +25,7 @@ export default function WeekDetails({
 
   return (
     <div
-      className={`grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4 justify-items-center overflow-y-auto max-h-[470px]   lg:h-screen  lg:max-h-screen  `}
+      className={`grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4 justify-items-center overflow-y-auto max-h-[460px]   lg:h-screen  lg:max-h-screen  `}
     >
       {last7Days?.map((day, index) => (
         <div

@@ -143,24 +143,29 @@ export default function NavBar({
                 </a>
               </li>
               <li>
-                {isDayMode ? (
-                  <FiMoon
-                    className="w-6 h-6 cursor-pointer "
-                    onClick={() => {
-                      setIsMenuOpen(false);
-                      toggleDayMode();
-                    }}
-                  />
-                ) : (
+                <div
+                  className="relative w-10 h-6 flex items-center cursor-pointer"
+                  onClick={() => {
+                    toggleDayMode();
+                    setIsMenuOpen(false);
+                  }}
+                >
+                  <div
+                    className={`absolute inset-0 ${
+                      isDayMode ? "bg-gray-200" : "bg-gray-800"
+                    }  rounded-full transition duration-300 ease-in-out`}
+                  ></div>
                   <FiSun
-                    color="white"
-                    className="w-6 h-6 cursor-pointer"
-                    onClick={() => {
-                      setIsMenuOpen(false);
-                      toggleDayMode();
-                    }}
+                    className={`absolute left-0 top-0 w-6 h-6 text-[#fff] transition-all duration-500 ${
+                      isDayMode ? "opacity-0" : "opacity-100"
+                    }`}
                   />
-                )}
+                  <FiMoon
+                    className={`absolute right-0 top-0 w-6 h-6 text-black transition-all duration-500 ${
+                      isDayMode ? "opacity-100" : "opacity-0"
+                    }`}
+                  />
+                </div>
               </li>
             </ul>
           </div>
