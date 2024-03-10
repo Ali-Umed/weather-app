@@ -3,9 +3,7 @@ import { FiSun } from "react-icons/fi";
 export default function Footer({ isDayMode }: { isDayMode: boolean }) {
   return (
     <footer
-      className={`col-span-3   ${
-        isDayMode ? "bg-[#f1f9fe]" : "bg-[#00000059]"
-      }`}
+      className={`col-span-3   ${isDayMode ? "bg-[#fff]" : "bg-[#00000059]"}`}
       id="footer"
     >
       <div className={` ${isDayMode ? "bg-white" : "bg-[#00000000]"}   pt-1`}>
@@ -32,7 +30,7 @@ export default function Footer({ isDayMode }: { isDayMode: boolean }) {
                   isDayMode ? "bg-white" : "bg-[#00000000]"
                 }  `}
               >
-                <span>&copy; Wather App 2024</span>
+                <span>&copy; Weather App 2024</span>
                 <div className="flex gap-6">
                   <a
                     href="https://github.com/Ali-Umed?tab=overview"
