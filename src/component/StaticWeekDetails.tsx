@@ -1,7 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { WiDayShowers } from "react-icons/wi";
 
-export default function StaticWeekDetails() {
+export default function StaticWeekDetails({
+  isDayMode,
+}: {
+  isDayMode: boolean;
+}) {
   const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
   return (
@@ -10,7 +14,9 @@ export default function StaticWeekDetails() {
         {daysOfWeek.map((day, index) => (
           <div
             key={index}
-            className={`bg-white p-4 rounded-lg shadow-md items-center overflow-clip justify-center flex w-2/3 md:w-full cursor-pointer  ${
+            className={` ${
+              isDayMode ? "bg-white" : "bg-[rgb(36,40,51)] "
+            }  p-4 rounded-lg shadow-md items-center overflow-clip justify-center flex w-2/3 md:w-full cursor-pointer  ${
               index === daysOfWeek.length - 1
                 ? " lg:col-start-2 lg:col-end-3"
                 : ""

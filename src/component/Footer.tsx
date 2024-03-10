@@ -1,33 +1,41 @@
 import { FiSun } from "react-icons/fi";
 
-export default function Footer() {
+export default function Footer({ isDayMode }: { isDayMode: boolean }) {
   return (
-    <footer className="col-span-3" id="footer">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="-mb-0.5 w-full"
-        viewBox="0 0 1367.743 181.155"
+    <footer
+      className={`col-span-3   ${
+        isDayMode ? "bg-[#f1f9fe]" : "bg-[rgb(0,0,0)]"
+      }`}
+      id="footer"
+    >
+      <div
+        className={` bg-gradient-to-b ${
+          isDayMode ? "bg-white" : "bg-black"
+        }   pt-1`}
       >
-        <path
-          className="fill-current text-[#F1F9FE]"
-          id="wave"
-          data-name="wave"
-          d="M0,0S166.91-56.211,405.877-49.5,715.838,14.48,955.869,26.854,1366,0,1366,0V115H0Z"
-          transform="translate(1.743 66.155)"
-        ></path>
-      </svg>
-      <div className="bg-gradient-to-b bg-white   pt-1">
-        <div className="container m-auto space-y-8 px-6 text-gray-600 dark:text-gray-400 md:px-12 lg:px-20">
-          <div className="grid grid-cols-8 gap-0 md:gap-0">
-            <div className="col-span-8   md:col-span-2 lg:col-span-3">
-              <div className="flex items-center  gap-6 border-b border-white  py-3 md:block md:space-y-6 justify-center md:border-none md:py-0">
+        <div
+          className={`container m-auto space-y-8 px-6 text-gray-600 dark:text-gray-400 md:px-12 lg:px-20   ${
+            isDayMode ? "bg-white" : "bg-black"
+          }`}
+        >
+          <div
+            className={`grid grid-cols-8 gap-0 md:gap-0  ${
+              isDayMode ? "bg-white" : "bg-black"
+            }  `}
+          >
+            <div className="col-span-8   md:col-span-2 lg:col-span-3 ">
+              <div className="flex items-center  gap-6 border-b border-white   py-3 md:block md:space-y-6 justify-center md:border-none md:py-0">
                 <div className="p-2">
                   <FiSun className="h-8 w-8 text-[#90c0df] mr-3" />
                 </div>
               </div>
             </div>
             <div className="col-span-8 md:col-span-6 lg:col-span-5 bg-white ">
-              <div className="flex justify-between  py-2 pb-8 md:pl-16 bg-white">
+              <div
+                className={`flex justify-between  py-2 pb-8 md:pl-16  ${
+                  isDayMode ? "bg-white" : "bg-black"
+                }  `}
+              >
                 <span>&copy; Wather App 2024</span>
                 <div className="flex gap-6">
                   <a

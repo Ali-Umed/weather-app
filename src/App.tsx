@@ -1,3 +1,5 @@
+// App.js
+
 import { useEffect, useState } from "react";
 import Loading from "./component/Loading";
 import { QuickDetails, WeatherData } from "./component/QuickDetails";
@@ -19,6 +21,11 @@ function App() {
   const [error, setError] = useState<string | null>(null);
   const [day, setDay] = useState<number | null>(null);
   const [status, setStatus] = useState("week");
+  const [isDayMode, setIsDayMode] = useState(true);
+
+  const toggleDayMode = () => {
+    setIsDayMode(!isDayMode);
+  };
 
   useEffect(() => {
     const controller = new AbortController();
@@ -77,10 +84,23 @@ function App() {
   );
 
   return (
-    <div className="bg-[#fff] min-h-screen flex justify-center items-center relative ">
-      <div className="bg-[#F1F9FE]  min-h-[1000px]  rounded-xl shadow-2xl w-full  md:w-11/12 lg:w-11/12 xl:w-10/12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
+    <div
+      className={`${
+        isDayMode ? "bg-[#fff]" : "bg-[#000000e7]"
+      } min-h-screen flex justify-center items-center relative`}
+    >
+      <div
+        className={`${
+          isDayMode ? "bg-[#f1f9fe]" : "bg-[rgb(25,27,35)]"
+        } min-h-[1000px] rounded-xl shadow-2xl w-full md:w-11/12 lg:w-11/12 xl:w-10/12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3`}
+      >
         <div className="col-span-3">
-          <NavBar query={query} setQuery={setQuery} />
+          <NavBar
+            query={query}
+            setQuery={setQuery}
+            isDayMode={isDayMode}
+            toggleDayMode={toggleDayMode}
+          />
         </div>
         <div className="flex flex-col items-center h-full w-full z-0 col-span-2 md:col-span-1 p-2 sm:p-3 md:p-6">
           <Error error={error} />
@@ -97,7 +117,7 @@ function App() {
                 status={status}
                 setStatus={setStatus}
               />
-              <StaticWeekDetails />
+              <StaticWeekDetails isDayMode={isDayMode} />
             </>
           ) : (
             data == null && (
@@ -108,7 +128,7 @@ function App() {
                   status={status}
                   setStatus={setStatus}
                 />
-                <StaticWeekDetails />
+                <StaticWeekDetails isDayMode={isDayMode} />
               </>
             )
           )}
@@ -135,12 +155,12 @@ function App() {
                 day={data?.days?.[day]}
                 setDay={setDay}
                 setStatus={setStatus}
+                isDayMode={isDayMode}
               />
             </>
           )}
         </div>
-
-        <Footer />
+        <Footer isDayMode={isDayMode} />
       </div>
     </div>
   );

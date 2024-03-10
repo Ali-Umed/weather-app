@@ -25,10 +25,12 @@ export default function DayWeather({
   day,
   setDay,
   setStatus,
+  isDayMode,
 }: {
   day: DayData;
   setDay: (arg: null) => void;
   setStatus: (status: string) => void;
+  isDayMode: boolean;
 }) {
   const {
     conditions,

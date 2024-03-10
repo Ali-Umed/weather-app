@@ -1,15 +1,18 @@
 import { useState, useEffect } from "react";
-import { FiSun } from "react-icons/fi";
+import { FiMoon, FiSun } from "react-icons/fi";
 
 export default function NavBar({
   query,
   setQuery,
+  isDayMode,
+  toggleDayMode,
 }: {
   query: string;
   setQuery: (que: string) => void;
+  isDayMode: boolean;
+  toggleDayMode: () => void;
 }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -39,13 +42,14 @@ export default function NavBar({
 
   return (
     <div>
-      <nav className="bg-white border-gray-200">
+      <nav
+        className={`${
+          isDayMode ? "bg-[#fff]" : "bg-[rgb(0,0,0)]"
+        } border-gray-200`}
+      >
         <div className="max-w-screen-lg flex items-center justify-between mx-auto p-4">
           <a href="#" className="flex items-center" onClick={handleHomeClick}>
             <FiSun className="h-8 w-8 text-[#90c0df] mr-3" />
-            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-              Weather
-            </span>
           </a>
           <div className="relative block">
             <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -72,7 +76,11 @@ export default function NavBar({
               onChange={(e) => setQuery(e.target.value)}
               type="text"
               id="search-navbar"
-              className="block w-full p-2 pl-10 text-sm text-gray-900 border border-[#90c0df] rounded-lg bg-[#F1F9FE] focus:ring-[#90c0df] focus:outline-none focus:border-[#90c0df] "
+              className={`block w-full p-2 pl-10 text-sm text-gray-900 border rounded-lg ${
+                isDayMode
+                  ? "bg-[#F1F9FE] border-[#90c0df] focus:ring-[#90c0df] focus:outline-none focus:border-[#90c0df]"
+                  : "bg-black text-white border-gray-600 focus:ring-[#90aec2da] focus:outline-none focus:border-[#83a0b4d5]"
+              }`}
               placeholder="Search..."
             />
           </div>
@@ -108,11 +116,15 @@ export default function NavBar({
             } md:flex md:w-auto md:order-1`}
             id="navbar-search"
           >
-            <ul className="  flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 bg-[#fff]">
+            <ul
+              className={`  flex flex-col items-center p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 ${
+                isDayMode ? "bg-[#fff]" : "bg-[rgb(0,0,0)]"
+              }`}
+            >
               <li>
                 <a
                   href="#"
-                  className="block py-2 pl-3 pr-4 text-gray-400 hover:text-[#84b7c4] rounded md:p-0"
+                  className="block py-2 pl-3 pr-4 text-gray-400 hover:text-cyan-600 rounded md:p-0"
                   aria-current="page"
                   onClick={handleHomeClick}
                 >
@@ -122,11 +134,25 @@ export default function NavBar({
               <li>
                 <a
                   href="#footer"
-                  className="block py-2 pl-3 pr-4 text-gray-400 rounded hover:text-[#84b7c4] md:p-0"
+                  className="block py-2 pl-3 pr-4 text-gray-400 rounded hover:text-cyan-600 md:p-0"
                   onClick={handleAboutClick}
                 >
                   About
                 </a>
+              </li>
+              <li>
+                {isDayMode ? (
+                  <FiMoon
+                    className="w-6 h-6 cursor-pointer "
+                    onClick={toggleDayMode}
+                  />
+                ) : (
+                  <FiSun
+                    color="white"
+                    className="w-6 h-6 cursor-pointer"
+                    onClick={toggleDayMode}
+                  />
+                )}
               </li>
             </ul>
           </div>
