@@ -44,7 +44,7 @@ export default function NavBar({
     <div>
       <nav
         className={`${
-          isDayMode ? "bg-[#fff]" : "bg-[rgb(0,0,0)]"
+          isDayMode ? "bg-[#fff]" : "bg-[#00000059]"
         } border-gray-200`}
       >
         <div className="max-w-screen-lg flex items-center justify-between mx-auto p-4">
@@ -79,7 +79,7 @@ export default function NavBar({
               className={`block w-full p-2 pl-10 text-sm text-gray-900 border rounded-lg ${
                 isDayMode
                   ? "bg-[#F1F9FE] border-[#90c0df] focus:ring-[#90c0df] focus:outline-none focus:border-[#90c0df]"
-                  : "bg-black text-white border-gray-600 focus:ring-[#90aec2da] focus:outline-none focus:border-[#83a0b4d5]"
+                  : "bg-[#00000000] text-white border-gray-600 focus:ring-[#90aec2da] focus:outline-none focus:border-[#83a0b4d5]"
               }`}
               placeholder="Search..."
             />
@@ -118,7 +118,7 @@ export default function NavBar({
           >
             <ul
               className={`  flex flex-col items-center p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 ${
-                isDayMode ? "bg-[#fff]" : "bg-[rgb(0,0,0)]"
+                isDayMode ? "bg-[#fff]" : "bg-[#00000000]"
               }`}
             >
               <li>

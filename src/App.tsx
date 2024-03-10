@@ -86,7 +86,7 @@ function App() {
   return (
     <div
       className={`${
-        isDayMode ? "bg-[#fff]" : "bg-[#000000e7]"
+        isDayMode ? "bg-[#fff]" : "bg-[#000000]"
       } min-h-screen flex justify-center items-center relative`}
     >
       <div

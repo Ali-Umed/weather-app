@@ -4,23 +4,19 @@ export default function Footer({ isDayMode }: { isDayMode: boolean }) {
   return (
     <footer
       className={`col-span-3   ${
-        isDayMode ? "bg-[#f1f9fe]" : "bg-[rgb(0,0,0)]"
+        isDayMode ? "bg-[#f1f9fe]" : "bg-[#00000059]"
       }`}
       id="footer"
     >
-      <div
-        className={` bg-gradient-to-b ${
-          isDayMode ? "bg-white" : "bg-black"
-        }   pt-1`}
-      >
+      <div className={` ${isDayMode ? "bg-white" : "bg-[#00000000]"}   pt-1`}>
         <div
-          className={`container m-auto space-y-8 px-6 text-gray-600 dark:text-gray-400 md:px-12 lg:px-20   ${
-            isDayMode ? "bg-white" : "bg-black"
+          className={`container m-auto space-y-8 px-6 text-gray-600  md:px-12 lg:px-20   ${
+            isDayMode ? "bg-white" : "bg-[#00000000]"
           }`}
         >
           <div
             className={`grid grid-cols-8 gap-0 md:gap-0  ${
-              isDayMode ? "bg-white" : "bg-black"
+              isDayMode ? "bg-white" : "bg-[#00000000]"
             }  `}
           >
             <div className="col-span-8   md:col-span-2 lg:col-span-3 ">
@@ -30,10 +26,10 @@ export default function Footer({ isDayMode }: { isDayMode: boolean }) {
                 </div>
               </div>
             </div>
-            <div className="col-span-8 md:col-span-6 lg:col-span-5 bg-white ">
+            <div className="col-span-8 md:col-span-6 lg:col-span-5 ">
               <div
                 className={`flex justify-between  py-2 pb-8 md:pl-16  ${
-                  isDayMode ? "bg-white" : "bg-black"
+                  isDayMode ? "bg-white" : "bg-[#00000000]"
                 }  `}
               >
                 <span>&copy; Wather App 2024</span>
