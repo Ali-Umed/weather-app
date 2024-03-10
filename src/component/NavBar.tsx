@@ -147,7 +147,7 @@ export default function NavBar({
                   <FiMoon
                     className="w-6 h-6 cursor-pointer "
                     onClick={() => {
-                      toggleMenu();
+                      setIsMenuOpen(false);
                       toggleDayMode();
                     }}
                   />
@@ -156,7 +156,7 @@ export default function NavBar({
                     color="white"
                     className="w-6 h-6 cursor-pointer"
                     onClick={() => {
-                      toggleMenu();
+                      setIsMenuOpen(false);
                       toggleDayMode();
                     }}
                   />
