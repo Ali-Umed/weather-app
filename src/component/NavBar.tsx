@@ -113,12 +113,14 @@ export default function NavBar({
               isMenuOpen
                 ? "flex z-50 absolute  right-0 -top-4 md:hidden  "
                 : "hidden"
-            } md:flex md:w-auto md:order-1`}
+            } md:flex md:w-auto md:order-1  `}
             id="navbar-search"
           >
             <ul
-              className={`  flex flex-col items-center p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 ${
-                isDayMode ? "bg-[#fff]" : "bg-[#00000000]"
+              className={`  flex flex-col items-center p-4 md:p-0 mt-4 font-medium rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 ${
+                isDayMode
+                  ? "bg-[#fff] border border-gray-300 "
+                  : "bg-[#00000000]  border border-gray-100 "
               }`}
             >
               <li>
@@ -144,13 +146,19 @@ export default function NavBar({
                 {isDayMode ? (
                   <FiMoon
                     className="w-6 h-6 cursor-pointer "
-                    onClick={toggleDayMode}
+                    onClick={() => {
+                      toggleMenu();
+                      toggleDayMode();
+                    }}
                   />
                 ) : (
                   <FiSun
                     color="white"
                     className="w-6 h-6 cursor-pointer"
-                    onClick={toggleDayMode}
+                    onClick={() => {
+                      toggleMenu();
+                      toggleDayMode();
+                    }}
                   />
                 )}
               </li>
