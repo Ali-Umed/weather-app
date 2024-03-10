@@ -1,8 +1,12 @@
 import { WiDaySunny } from "react-icons/wi";
 
-export default function StaticDetails() {
+export default function StaticDetails({ isDayMode }: { isDayMode: boolean }) {
   return (
-    <div className="flex flex-col items-center">
+    <div
+      className={`flex flex-col items-center ${
+        isDayMode ? "text-black" : "text-white"
+      } `}
+    >
       <h1 className="mt-6 text-2xl text-center">
         Adress: <span className="font-medium">London</span>{" "}
       </h1>

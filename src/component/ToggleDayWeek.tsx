@@ -5,11 +5,13 @@ export default function ToggleDayWeek({
   status,
   setStatus,
   setDay,
+  isDayMode,
 }: {
   data: daysData | null;
   status: string;
   setStatus: (arg: string) => void;
   setDay: (arg: null | number) => void;
+  isDayMode: boolean;
 }) {
   function handleWeekClick() {
     setStatus("week");
@@ -17,7 +19,7 @@ export default function ToggleDayWeek({
   }
 
   return (
-    <div className="flex justify-between mt-2">
+    <div className="flex justify-between mt-2    ">
       <span
         onClick={() => {
           if (data) {
@@ -25,17 +27,25 @@ export default function ToggleDayWeek({
             setDay(0);
           }
         }}
-        className={`text-gray-600 cursor-pointer border-black  ${
+        className={` cursor-pointer   ${
           status == "day" ? " border-b-2" : ""
-        }`}
+        }  ${
+          isDayMode
+            ? "text-gray-600  border-gray-600"
+            : "text-gray-300 border-white"
+        }  `}
       >
         Day
       </span>
       <span
         onClick={handleWeekClick}
-        className={`text-gray-600  cursor-pointer border-black  ${
-          status == "week" ? " border-b-2" : ""
-        }`}
+        className={`  cursor-pointer   ${status == "week" ? " border-b-2" : ""} 
+        ${
+          isDayMode
+            ? "text-gray-600  border-gray-600"
+            : "text-gray-300 border-white"
+        }
+        `}
       >
         Week
       </span>

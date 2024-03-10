@@ -1,11 +1,23 @@
-export default function Error({ error }: { error: string | null }) {
+export default function Error({
+  error,
+  isDayMode,
+}: {
+  error: string | null;
+  isDayMode: boolean;
+}) {
   return (
     <section
       className={`absolute  top-12  lg:top-0 try left-1/2 -translate-x-1/2 items-center px-5 py-12 lg:px-20 z-50 ${
         error ? "visible" : "invisible"
       }`}
     >
-      <div className="w-full text-yellow-600 border rounded-lg shadow-xl bg-white">
+      <div
+        className={`w-full text-yellow-600 border  rounded-lg shadow-xl ${
+          isDayMode
+            ? "bg-[#fff]"
+            : "bg-[#000000e7] border-gray-500 text-yellow-200"
+        }`}
+      >
         <div className="flex items-center justify-between px-6 py-4 mx-auto">
           <div className="flex">
             <svg

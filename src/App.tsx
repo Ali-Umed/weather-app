@@ -103,9 +103,13 @@ function App() {
           />
         </div>
         <div className="flex flex-col items-center h-full w-full z-0 col-span-2 md:col-span-1 p-2 sm:p-3 md:p-6">
-          <Error error={error} />
+          <Error error={error} isDayMode={isDayMode} />
 
-          {data === null ? <StaticDetails /> : <QuickDetails data={data} />}
+          {data === null ? (
+            <StaticDetails isDayMode={isDayMode} />
+          ) : (
+            <QuickDetails data={data} isDayMode={isDayMode} />
+          )}
         </div>
         <div className="col-span-2 p-2 sm:p-3 md:p-6">
           <Loading isLoading={isLoading} />
@@ -116,6 +120,7 @@ function App() {
                 setDay={setDay}
                 status={status}
                 setStatus={setStatus}
+                isDayMode={isDayMode}
               />
               <StaticWeekDetails isDayMode={isDayMode} />
             </>
@@ -127,6 +132,7 @@ function App() {
                   setDay={setDay}
                   status={status}
                   setStatus={setStatus}
+                  isDayMode={isDayMode}
                 />
                 <StaticWeekDetails isDayMode={isDayMode} />
               </>
@@ -139,8 +145,14 @@ function App() {
                 setDay={setDay}
                 status={status}
                 setStatus={setStatus}
+                isDayMode={isDayMode}
               />
-              <WeekDetails data={data} setDay={setDay} setStatus={setStatus} />
+              <WeekDetails
+                data={data}
+                setDay={setDay}
+                setStatus={setStatus}
+                isDayMode={isDayMode}
+              />
             </>
           )}
           {day !== null && data && data.days !== undefined && (
@@ -150,6 +162,7 @@ function App() {
                 setStatus={setStatus}
                 setDay={setDay}
                 data={data}
+                isDayMode={isDayMode}
               />
               <DayWeather
                 day={data?.days?.[day]}

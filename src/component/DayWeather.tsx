@@ -80,7 +80,11 @@ export default function DayWeather({
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-md p-4 mt-3">
+    <div
+      className={`rounded-xl shadow-md p-4 mt-3 ${
+        isDayMode ? "bg-white text-black" : "bg-[rgb(36,40,51)] text-white "
+      }`}
+    >
       <div className="flex justify-between items-center mb-4">
         <div className="flex items-center">
           {getWeatherIcon(icon)}

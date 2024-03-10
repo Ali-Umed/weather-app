@@ -8,7 +8,13 @@ import {
   WiWindy,
 } from "react-icons/wi";
 
-export function QuickDetails({ data }: { data: WeatherData | null }) {
+export function QuickDetails({
+  data,
+  isDayMode,
+}: {
+  data: WeatherData | null;
+  isDayMode: boolean;
+}) {
   const getWeatherIcon = () => {
     switch (data?.currentConditions.icon) {
       case "cloudy":
@@ -28,7 +34,7 @@ export function QuickDetails({ data }: { data: WeatherData | null }) {
       case "wind":
         return <WiWindy size={160} className="mt-4" />;
       default:
-        return <WiDaySunny size={88} className="mt-4" />;
+        return <WiDaySunny size={88} className="mt-4 " />;
     }
   };
 
@@ -37,8 +43,16 @@ export function QuickDetails({ data }: { data: WeatherData | null }) {
   };
 
   return (
-    <>
-      <h1 className="mt-6 text-2xl text-center">
+    <div
+      className={`${
+        isDayMode ? "text-black" : "text-white"
+      } flex flex-col items-center`}
+    >
+      <h1
+        className={`mt-6 text-2xl text-center ${
+          isDayMode ? "text-black" : "text-white"
+        } `}
+      >
         Address: <span className="font-medium">{data?.resolvedAddress}</span>
       </h1>
       {getWeatherIcon()}
@@ -57,7 +71,7 @@ export function QuickDetails({ data }: { data: WeatherData | null }) {
       <div className="text-xl font-semibold mt-5">
         Sunset: {data?.currentConditions.sunset}
       </div>
-    </>
+    </div>
   );
 }
 

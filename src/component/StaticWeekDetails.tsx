@@ -15,7 +15,9 @@ export default function StaticWeekDetails({
           <div
             key={index}
             className={` ${
-              isDayMode ? "bg-white" : "bg-[rgb(36,40,51)] "
+              isDayMode
+                ? "bg-white text-black"
+                : "bg-[rgb(36,40,51)] text-white "
             }  p-4 rounded-lg shadow-md items-center overflow-clip justify-center flex w-2/3 md:w-full cursor-pointer  ${
               index === daysOfWeek.length - 1
                 ? " lg:col-start-2 lg:col-end-3"
@@ -24,7 +26,11 @@ export default function StaticWeekDetails({
           >
             <div className="flex flex-col justify-center items-center h-full">
               <h1 className="text-lg font-semibold mb-4">{day}</h1>
-              <WiDayShowers size={114} color="black" className="mb-2" />
+              <WiDayShowers
+                size={114}
+                color={`${isDayMode ? "black" : "white"}`}
+                className="mb-2"
+              />
               <div className="text-lg">15°C - 2°C</div>
             </div>
           </div>
