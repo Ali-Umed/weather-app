@@ -59,7 +59,7 @@ export function QuickDetails({
       <div className="text-5xl font-bold mt-4">
         {convertToFahrenheit(data?.currentConditions.temp)}
       </div>
-      <div className="text-xl font-semibold mt-5">
+      <div className="text-xl font-semibold mt-5 text-center">
         Last Time Update: {data?.currentConditions.datetime}
       </div>
       <h1 className="text-2xl font-semibold mt-5">

@@ -25,7 +25,7 @@ export default function WeekDetails({
 
   return (
     <div
-      className={`grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4 justify-items-center overflow-y-auto max-h-[445px]   lg:h-screen  lg:max-h-screen  `}
+      className={`grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4 justify-items-center overflow-y-auto max-h-[470px]   lg:h-screen  lg:max-h-screen  `}
     >
       {last7Days?.map((day, index) => (
         <div
@@ -36,9 +36,11 @@ export default function WeekDetails({
           key={index}
           className={`${
             isDayMode ? "bg-white text-black" : "bg-[rgb(36,40,51)] text-white "
-          } p-4 rounded-lg shadow-md items-center overflow-clip justify-center flex w-2/3 md:w-full cursor-pointer  ${
+          } p-4 rounded-lg shadow-md items-center overflow-clip justify-center flex w-2/3  md:w-full cursor-pointer  ${
             index === last7Days.length - 1 ? "lg:col-start-2 lg:col-end-3" : ""
-          }`}
+          }
+          ${index === last7Days.length - 1 ? "md:col-start-1 md:col-end-3" : ""}
+          `}
         >
           <div className="flex flex-col justify-center items-center h-full">
             <h1 className="text-lg font-semibold mb-2">

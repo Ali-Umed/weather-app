@@ -10,7 +10,7 @@ export default function StaticWeekDetails({
 
   return (
     <div>
-      <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4 justify-items-center overflow-y-auto max-h-[445px]   lg:h-screen  lg:max-h-screen  ">
+      <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4 justify-items-center overflow-y-auto max-h-[470px]   lg:h-screen  lg:max-h-screen  ">
         {daysOfWeek.map((day, index) => (
           <div
             key={index}
@@ -22,7 +22,13 @@ export default function StaticWeekDetails({
               index === daysOfWeek.length - 1
                 ? " lg:col-start-2 lg:col-end-3"
                 : ""
-            }`}
+            }
+            ${
+              index === daysOfWeek.length - 1
+                ? "md:col-start-1 md:col-end-3"
+                : ""
+            }
+            `}
           >
             <div className="flex flex-col justify-center items-center h-full">
               <h1 className="text-lg font-semibold mb-4">{day}</h1>
