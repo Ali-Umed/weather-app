@@ -32,7 +32,7 @@ function App() {
 
     async function fetchWeather() {
       setIsLoading(true);
-      setData(null);
+      // setData(null);
       // setError(null);
 
       try {
