@@ -27,12 +27,32 @@ function App() {
     setIsDayMode(!isDayMode);
   };
 
+  // kerkuk
+  useEffect(() => {
+    async function fetchWeather() {
+      setIsLoading(true);
+      try {
+        const geoRes = await fetch(
+          `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/kerkuk?key=${key}`
+        );
+        const geoData = await geoRes.json();
+        setData(geoData);
+        setIsLoading(false);
+        setError(null);
+      } catch (err) {
+        setError("Can Not Fetch Data Again server have a problem");
+        setIsLoading(false);
+      }
+    }
+    fetchWeather();
+  }, []);
+
   useEffect(() => {
     const controller = new AbortController();
 
     async function fetchWeather() {
       setIsLoading(true);
-      setData(null);
+      // setData(null);
       // setError(null);
 
       try {
@@ -45,7 +65,7 @@ function App() {
         setIsLoading(false);
         setError(null);
       } catch (err) {
-        setError("Can Not Fetch Data Search Again");
+        setError("can not find place search again");
         setIsLoading(false);
       }
     }
