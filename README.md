@@ -31,7 +31,7 @@ To run the Weather App locally, follow these steps:
 
 ## Preview
 
-Check out the live demo [](https://weather-app-tawny-zeta-38.vercel.app/) to see the weather app in action!
+Check out the live demo [weather app](https://weather-app-tawny-zeta-38.vercel.app/) to see the weather app in action!
 
 ![Weather App Preview](./src/assets/privew1.png)
 ![Weather App Preview](./src/assets/privew2.png)
