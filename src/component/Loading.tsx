@@ -1,4 +1,4 @@
-export default function Loading({ isLoading }) {
+export default function Loading({ isLoading }: { isLoading: boolean }) {
   console.log(isLoading);
 
   return (
