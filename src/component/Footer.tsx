@@ -17,21 +17,21 @@ export default function Footer({ isDayMode }: { isDayMode: boolean }) {
               isDayMode ? "bg-white" : "bg-[#00000000]"
             }  `}
           >
-            <div className="col-span-8   md:col-span-2 lg:col-span-3 ">
-              <div className="flex items-center  gap-6 border-b border-white   py-3 md:block md:space-y-6 justify-center md:border-none md:py-0">
-                <div className="p-2">
+            <div className="col-span-8   md:col-span-1 border-b border-b-black md:border-none lg:col-span-3 ">
+              <div className="flex items-center  gap-6   py-3 md:block md:space-y-6 justify-center  md:py-0">
+                <div className="md:p-2 ">
                   <FiSun className="h-8 w-8 text-[#90c0df] mr-3" />
                 </div>
               </div>
             </div>
-            <div className="col-span-8 md:col-span-6 lg:col-span-5 ">
+            <div className="col-span-7 md:col-span-6 lg:col-span-5 ">
               <div
                 className={`flex justify-between  py-2 pb-8 md:pl-16  ${
                   isDayMode ? "bg-white" : "bg-[#00000000]"
                 }  `}
               >
-                <span>&copy; Weather App 2024</span>
-                <div className="flex gap-6">
+                <span className="text-center">&copy; Weather App 2024</span>
+                <div className="flex gap-2">
                   <a
                     href="https://github.com/Ali-Umed?tab=overview"
                     target="blank"
@@ -102,10 +102,10 @@ export default function Footer({ isDayMode }: { isDayMode: boolean }) {
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
+                      width="28"
+                      height="26"
                       fill="currentColor"
-                      viewBox="0 0 24 24"
+                      viewBox="0 1 18 24"
                     >
                       <path d="M21.001 2.999c-2.165-.174-8.605-.187-10.998-.188h-.002c-2.392 0-8.832.014-11 .188-1.656.133-3 1.443-3 3.124v11.495c0 1.68 1.344 2.99 3 3.124 1.767.142 7.399.16 10 .176 2.6-.016 8.232-.034 10-.176 1.656-.134 3-1.444 3-3.124v-11.495c0-1.68-1.344-2.991-3-3.124zm-14 14v-8l8 4-8 4z" />
                     </svg>

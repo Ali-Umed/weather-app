@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
 import { FiMoon, FiSun } from "react-icons/fi";
+import { useState, useEffect } from "react";
 
 export default function NavBar({
   query,
@@ -13,6 +13,7 @@ export default function NavBar({
   toggleDayMode: () => void;
 }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -38,6 +39,12 @@ export default function NavBar({
 
   const handleAboutClick = () => {
     setIsMenuOpen(false);
+
+    const footerElement = document.getElementById("footer");
+
+    if (footerElement) {
+      footerElement.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
@@ -122,8 +129,10 @@ export default function NavBar({
               className={`  flex flex-col items-center p-4 md:p-0 mt-4 font-medium rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 ${
                 isDayMode
                   ? "bg-[#fff] border border-gray-300 "
-                  : "bg-[#00000059] border border-gray-500 "
-              }`}
+                  : " border border-gray-500 "
+              }
+              ${isDayMode && isMenuOpen && "bg-[#00000059]"}
+              `}
             >
               <li>
                 <a
