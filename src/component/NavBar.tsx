@@ -120,7 +120,7 @@ export default function NavBar({
               className={`  flex flex-col items-center p-4 md:p-0 mt-4 font-medium rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 ${
                 isDayMode
                   ? "bg-[#fff] border border-gray-300 "
-                  : "bg-[#00000000]  border border-gray-100 "
+                  : "bg-[#141419]  border border-gray-500 "
               }`}
             >
               <li>
