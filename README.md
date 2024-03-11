@@ -43,6 +43,6 @@ Check out the live demo [](https://weather-app-tawny-zeta-38.vercel.app/) to see
 
 ## Author
 
-- : [Your GitHub Profile](https://github.com/Ali-Umed)
+- : [Ali umed](https://github.com/Ali-Umed)
 
 If you encounter any issues or have suggestions for improvements, feel free to open an [issue](https://github.com/Ali-Umed/weather-app/issues) or submit a [pull request](https://github.com/Ali-Umed/weather-app/pulls).
