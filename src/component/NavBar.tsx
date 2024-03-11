@@ -88,7 +88,9 @@ export default function NavBar({
             <button
               type="button"
               onClick={toggleMenu}
-              className="md:hidden inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-[#90c0df] rounded-lg  focus:outline-none focus:ring-1 focus:ring-[#90c0df] "
+              className={`${
+                isMenuOpen ? "invisible" : ""
+              } md:hidden inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-[#90c0df] rounded-lg  focus:outline-none focus:ring-1 focus:ring-[#90c0df] `}
             >
               <span className="sr-only">Open main menu</span>
               <svg
@@ -120,7 +122,7 @@ export default function NavBar({
               className={`  flex flex-col items-center p-4 md:p-0 mt-4 font-medium rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 ${
                 isDayMode
                   ? "bg-[#fff] border border-gray-300 "
-                  : "bg-[#0a0a0a]  border border-gray-500 "
+                  : "bg-[#00000059] border border-gray-500 "
               }`}
             >
               <li>
