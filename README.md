@@ -33,9 +33,9 @@ To run the Weather App locally, follow these steps:
 
 Check out the live demo [](https://weather-app-tawny-zeta-38.vercel.app/) to see the weather app in action!
 
-![Weather App Preview](privew1.png)
-![Weather App Preview](privew2.png)
-![Weather App Preview](privew3.png)
+![Weather App Preview](./src/assets/privew1.png)
+![Weather App Preview](./src/assets/privew2.png)
+![Weather App Preview](./src/assets/privew3.png)
 
 <!-- ## License -->
 
@@ -43,6 +43,6 @@ Check out the live demo [](https://weather-app-tawny-zeta-38.vercel.app/) to see
 
 ## Author
 
-- **Your Name**: [Your GitHub Profile](https://github.com/Ali-Umed)
+- : [Your GitHub Profile](https://github.com/Ali-Umed)
 
 If you encounter any issues or have suggestions for improvements, feel free to open an [issue](https://github.com/Ali-Umed/weather-app/issues) or submit a [pull request](https://github.com/Ali-Umed/weather-app/pulls).
