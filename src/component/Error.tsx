@@ -7,7 +7,7 @@ export default function Error({
 }) {
   return (
     <section
-      className={`absolute  top-12  lg:top-0  left-1/2 -translate-x-1/2 items-center px-5 py-12 lg:px-20 z-50 ${
+      className={`absolute  top-12  lg:top-12  left-1/2 -translate-x-1/2 items-center px-0 py-2 lg:px-20 z-50  text-center ${
         error ? "visible" : "invisible"
       }`}
     >
