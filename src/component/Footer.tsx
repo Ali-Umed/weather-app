@@ -17,7 +17,13 @@ export default function Footer({ isDayMode }: { isDayMode: boolean }) {
               isDayMode ? "bg-white" : "bg-[#00000000]"
             }  `}
           >
-            <div className="col-span-8   md:col-span-1 border-b border-b-black md:border-none lg:col-span-3 ">
+            <div
+              className={` ${
+                isDayMode
+                  ? "border-b border-b-black border-opacity-40"
+                  : "border-b border-b-gray-600"
+              } col-span-8   md:col-span-1 border-b border-b-black md:border-none lg:col-span-3 `}
+            >
               <div className="flex items-center  gap-6   py-3 md:block md:space-y-6 justify-center  md:py-0">
                 <div className="md:p-2 ">
                   <FiSun className="h-8 w-8 text-[#90c0df] mr-3" />
