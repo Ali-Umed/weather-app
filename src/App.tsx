@@ -73,15 +73,15 @@ function App() {
     }
   }, [error]);
 
-  console.log(
-    "day is",
-    day,
-    "is loading is",
-    isLoading,
-    "error is",
-    error,
-    data
-  );
+  // console.log(
+  //   "day is",
+  //   day,
+  //   "is loading is",
+  //   isLoading,
+  //   "error is",
+  //   error,
+  //   data
+  // );
 
   return (
     <div
@@ -138,7 +138,7 @@ function App() {
               </>
             )
           )}
-          {!isLoading && !error && data && day === null && (
+          {!isLoading && data && day === null && (
             <>
               <ToggleDayWeek
                 data={data}

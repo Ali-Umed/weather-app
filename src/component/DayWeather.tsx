@@ -89,7 +89,7 @@ export default function DayWeather({
         <div className="flex items-center">
           {getWeatherIcon(icon)}
           <div>
-            <p className="text-lg font-semibold">{conditions}</p>
+            <p className="text-[13px] lg:text-lg font-semibold">{conditions}</p>
             <p className="text-sm">{datetime}</p>
           </div>
         </div>
@@ -98,7 +98,7 @@ export default function DayWeather({
           {convertToFahrenheit(tempmin)}°C - {convertToFahrenheit(tempmax)}°C
           <FontAwesomeIcon
             icon={faTimes}
-            className="ml-4 text-red-300 size-7 cursor-pointer"
+            className="ml-4 text-red-700 size-7 cursor-pointer"
             onClick={() => {
               setDay(null);
               setStatus("week");
@@ -140,21 +140,27 @@ export default function DayWeather({
         <div className="flex items-center">
           <FontAwesomeIcon
             icon={faSmog}
-            className="mr-4 size-7 text-gray-500"
+            className={`mr-4 size-7 ${
+              !isDayMode ? "text-white" : "text-slate-800"
+            } `}
           />
           <span>{dew}</span>
         </div>
         <div className="flex items-center">
           <FontAwesomeIcon
             icon={faCloud}
-            className="mr-4 size-7 text-gray-500"
+            className={`mr-4 size-7 ${
+              !isDayMode ? "text-white" : "text-lime-950"
+            } `}
           />
           <span>{cloudcover}</span>
         </div>
         <div className="flex items-center">
           <FontAwesomeIcon
             icon={faCloudSun}
-            className="mr-4 size-7 text-gray-500"
+            className={`mr-4 size-7 ${
+              !isDayMode ? "text-white" : "text-lime-950"
+            } `}
           />
           <span>{visibility}</span>
         </div>
@@ -176,7 +182,9 @@ export default function DayWeather({
         <div className="flex items-center">
           <FontAwesomeIcon
             icon={faSmog}
-            className="mr-4 size-7 text-gray-500"
+            className={`mr-4 size-7 ${
+              !isDayMode ? "text-white" : "text-lime-950"
+            } `}
           />
           <span>{humidity}</span>
         </div>
