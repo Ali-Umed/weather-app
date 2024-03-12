@@ -118,9 +118,11 @@ export default function WeekDetails({
           <li>
             <a
               onClick={() => GetWeekDate(1)}
-              className="inline-flex size-8 items-center justify-center rounded border border-gray-100 bg-white
-              hover:bg-[#90c0df]
-              text-gray-900 rtl:rotate-180"
+              className={`inline-flex size-8 items-center  hover:border-none  cursor-pointer justify-center rounded border  ${
+                isDayMode ? "bg-white" : "bg-[rgb(36,40,51)] text-white"
+              }
+              hover:bg-[#48aef3]
+               rtl:rotate-180`}
             >
               <span className="sr-only">Prev Page</span>
               <svg
@@ -141,7 +143,13 @@ export default function WeekDetails({
           <li>
             <a
               onClick={() => GetWeekDate(1)}
-              className="block size-8 rounded border border-gray-100 bg-white text-center leading-8 text-gray-900"
+              className={` block size-8 rounded cursor-pointer  hover:bg-[#48aef3] ${
+                !firstWeek
+                  ? " border bg-[rgb(36,40,51)] text-white "
+                  : " border-bg-[#48aef3] bg-[#48aef3] text-white "
+              } ${
+                isDayMode ? "bg-white" : "bg-[rgb(36,40,51)] text-white"
+              } text-center leading-8 `}
             >
               1
             </a>
@@ -149,7 +157,13 @@ export default function WeekDetails({
 
           <li
             onClick={() => GetWeekDate(2)}
-            className="block size-8 rounded border-blue-600 bg-blue-600 text-center leading-8 text-white"
+            className={` block size-8 rounded cursor-pointer  hover:bg-[#48aef3] ${
+              firstWeek
+                ? " border bg-[rgb(36,40,51)] text-white"
+                : " border-bg-[#48aef3] bg-[#48aef3] text-white"
+            }  ${
+              isDayMode ? "bg-white" : "bg-[rgb(36,40,51)] text-white"
+            } text-center leading-8 `}
           >
             2
           </li>
@@ -157,7 +171,9 @@ export default function WeekDetails({
           <li>
             <a
               onClick={() => GetWeekDate(2)}
-              className="inline-flex size-8 items-center justify-center rounded border border-gray-100 bg-white text-gray-900 rtl:rotate-180"
+              className={` ${
+                isDayMode ? "bg-white" : "bg-[rgb(36,40,51)] text-white"
+              }  inline-flex size-8 items-center  hover:bg-[#48aef3] hover:border-none cursor-pointer justify-center rounded border border-gray-100  text-gray-900 rtl:rotate-180`}
             >
               <span className="sr-only">Next Page</span>
               <svg
