@@ -21,7 +21,33 @@ function App() {
   const [error, setError] = useState<string | null>(null);
   const [day, setDay] = useState<number | null>(null);
   const [status, setStatus] = useState("week");
-  const [isDayMode, setIsDayMode] = useState(true);
+  const [isDayMode, setIsDayMode] = useState(
+    window.matchMedia("(prefers-color-scheme: dark)").matches
+  );
+
+  useEffect(() => {
+    // Add event listener to listen for changes in system preference
+    const handleSystemColorSchemeChange = (e) => {
+      setIsDayMode(!e.matches);
+    };
+
+    // Listen for changes in system preference
+    const systemColorSchemeMediaQuery = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    );
+    systemColorSchemeMediaQuery.addEventListener(
+      "change",
+      handleSystemColorSchemeChange
+    );
+
+    // Clean up by removing event listener
+    return () => {
+      systemColorSchemeMediaQuery.removeEventListener(
+        "change",
+        handleSystemColorSchemeChange
+      );
+    };
+  }, []); // Run this effect only once on component mount
 
   const toggleDayMode = () => {
     setIsDayMode(!isDayMode);

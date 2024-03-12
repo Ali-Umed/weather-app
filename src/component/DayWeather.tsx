@@ -141,7 +141,7 @@ export default function DayWeather({
           <FontAwesomeIcon
             icon={faSmog}
             className={`mr-4 size-7 ${
-              !isDayMode ? "text-white" : "text-slate-800"
+              !isDayMode ? "text-white text-opacity-90" : "text-gray-500"
             } `}
           />
           <span>{dew}</span>
@@ -150,7 +150,7 @@ export default function DayWeather({
           <FontAwesomeIcon
             icon={faCloud}
             className={`mr-4 size-7 ${
-              !isDayMode ? "text-white" : "text-lime-950"
+              !isDayMode ? "text-white text-opacity-90" : "text-gray-500"
             } `}
           />
           <span>{cloudcover}</span>
@@ -159,7 +159,7 @@ export default function DayWeather({
           <FontAwesomeIcon
             icon={faCloudSun}
             className={`mr-4 size-7 ${
-              !isDayMode ? "text-white" : "text-lime-950"
+              !isDayMode ? "text-white text-opacity-90" : "text-gray-500"
             } `}
           />
           <span>{visibility}</span>
@@ -183,7 +183,7 @@ export default function DayWeather({
           <FontAwesomeIcon
             icon={faSmog}
             className={`mr-4 size-7 ${
-              !isDayMode ? "text-white" : "text-lime-950"
+              !isDayMode ? "text-white text-opacity-90" : "text-gray-500"
             } `}
           />
           <span>{humidity}</span>
