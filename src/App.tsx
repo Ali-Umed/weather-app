@@ -102,6 +102,38 @@ function App() {
     }
   }, [error]);
 
+  async function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        async (position) => {
+          const latitude = position.coords.latitude;
+          const longitude = position.coords.longitude;
+
+          setIsLoading(true);
+
+          try {
+            const geoRes = await fetch(
+              `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${latitude},${longitude}?key=${key}`
+            );
+            const geoData = await geoRes.json();
+            setData(geoData);
+
+            setIsLoading(false);
+            setError(null);
+          } catch (err) {
+            setError("Can Not Fetch Data Search Again");
+            setIsLoading(false);
+          }
+        },
+        (error) => {
+          setError(`Accept Location to See current Weather : ${error.message}`);
+        }
+      );
+    } else {
+      console.error("Geolocation is not supported by this browser.");
+    }
+  }
+
   // console.log(
   //   "day is",
   //   day,
@@ -129,6 +161,7 @@ function App() {
             setQuery={setQuery}
             isDayMode={isDayMode}
             toggleDayMode={toggleDayMode}
+            getLocation={getLocation}
           />
         </div>
         <div className="flex flex-col items-center h-full w-full z-0 col-span-2 md:col-span-1 p-2 sm:p-3 md:p-6 lg:py-20">

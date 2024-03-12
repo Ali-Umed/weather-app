@@ -1,4 +1,4 @@
-import { FiMoon, FiSun } from "react-icons/fi";
+import { FiMapPin, FiMoon, FiSun } from "react-icons/fi";
 import { useState, useEffect } from "react";
 
 export default function NavBar({
@@ -6,11 +6,13 @@ export default function NavBar({
   setQuery,
   isDayMode,
   toggleDayMode,
+  getLocation,
 }: {
   query: string;
   setQuery: (que: string) => void;
   isDayMode: boolean;
   toggleDayMode: () => void;
+  getLocation: () => void;
 }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -56,40 +58,48 @@ export default function NavBar({
       >
         <div className="max-w-screen-lg flex items-center justify-between mx-auto p-4">
           <a href="#" className="flex items-center" onClick={handleHomeClick}>
-            <FiSun className="h-8 w-8 text-[#90c0df] mr-3" />
+            <FiSun className="h-8 w-8 text-[#61b0e6] mr-3" />
           </a>
-          <div className="relative block">
-            <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-              <svg
-                className="w-4 h-4 text-[#90c0df]"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 20 20"
-                color="currentColor"
-              >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-                />
-              </svg>
-              <span className="sr-only">Search icon</span>
-            </div>
-            <input
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              type="text"
-              id="search-navbar"
-              className={`block w-full p-2 pl-10 text-sm text-gray-900 border rounded-lg ${
-                isDayMode
-                  ? "bg-[#F1F9FE] border-[#90c0df] focus:ring-[#90c0df] focus:outline-none focus:border-[#90c0df]"
-                  : "bg-[#00000000] text-white border-gray-600 focus:ring-[#90aec2da] focus:outline-none focus:border-[#83a0b4d5]"
-              }`}
-              placeholder="Search..."
+
+          <div className="flex flex-row  items-center gap-1">
+            <FiMapPin
+              className="w-5 h-5  text-[#61b0e6]"
+              onClick={getLocation}
             />
+            <div className="relative block">
+              <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                <span className="sr-only">Location icon</span>
+                <svg
+                  className="w-4 h-4 text-[#61b0e6]"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 20 20"
+                  color="currentColor"
+                >
+                  <path
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+                  />
+                </svg>
+                <span className="sr-only">Search icon</span>
+              </div>
+              <input
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                type="text"
+                id="search-navbar"
+                className={`block w-full p-2 pl-10 text-sm text-gray-900 border rounded-lg ${
+                  isDayMode
+                    ? "bg-[#F1F9FE] border-[#90c0df] focus:ring-[#90c0df] focus:outline-none focus:border-[#90c0df]"
+                    : "bg-[#00000000] text-white border-gray-600 focus:ring-[#90aec2da] focus:outline-none focus:border-[#83a0b4d5]"
+                }`}
+                placeholder="Search..."
+              />
+            </div>
           </div>
           <div className="flex md:order-2">
             <button
@@ -137,7 +147,7 @@ export default function NavBar({
               <li>
                 <a
                   href="#"
-                  className="block py-2 pl-3 pr-4 text-gray-400 hover:text-cyan-600 rounded md:p-0"
+                  className="block py-2 pl-3 pr-4 text-gray-500 hover:text-cyan-600 rounded md:p-0"
                   aria-current="page"
                   onClick={handleHomeClick}
                 >
@@ -147,7 +157,7 @@ export default function NavBar({
               <li>
                 <a
                   href="#footer"
-                  className="block py-2 pl-3 pr-4 text-gray-400 rounded hover:text-cyan-600 md:p-0"
+                  className="block py-2 pl-3 pr-4 text-gray-500 rounded hover:text-cyan-600 md:p-0"
                   onClick={handleAboutClick}
                 >
                   About
