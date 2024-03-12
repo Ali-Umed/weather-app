@@ -22,18 +22,27 @@ function App() {
   const [day, setDay] = useState<number | null>(null);
   const [status, setStatus] = useState("week");
   const [isDayMode, setIsDayMode] = useState(
-    window.matchMedia("(prefers-color-scheme: dark)").matches
+    window.matchMedia("(prefers-color-scheme: light)").matches
   );
 
   useEffect(() => {
+    // Function to check and update the day mode based on system preference
+    const updateDayMode = () => {
+      setIsDayMode(window.matchMedia("(prefers-color-scheme: light)").matches);
+    };
+
+    // Set the initial day mode
+    updateDayMode();
+
     // Add event listener to listen for changes in system preference
-    const handleSystemColorSchemeChange = (e) => {
-      setIsDayMode(!e.matches);
+    const handleSystemColorSchemeChange = () => {
+      // Update the day mode when system color scheme changes
+      updateDayMode();
     };
 
     // Listen for changes in system preference
     const systemColorSchemeMediaQuery = window.matchMedia(
-      "(prefers-color-scheme: dark)"
+      "(prefers-color-scheme: light)"
     );
     systemColorSchemeMediaQuery.addEventListener(
       "change",
