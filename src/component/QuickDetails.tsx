@@ -53,7 +53,12 @@ export function QuickDetails({
           isDayMode ? "text-black" : "text-white"
         } `}
       >
-        Address: <span className="font-medium">{data?.resolvedAddress}</span>
+        Address:{" "}
+        <span className="font-medium">
+          {Number(data?.resolvedAddress.charAt(1))
+            ? "Your Location"
+            : data?.resolvedAddress}
+        </span>
       </h1>
       {getWeatherIcon()}
       <div className="text-5xl font-bold mt-4">
