@@ -16,31 +16,26 @@ const key = "7K6G2YBAY7APWRNHC93TFSTHB";
 
 function App() {
   const [data, setData] = useState<WeatherData | null>(null);
-  const [query, setQuery] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+  const [query, setQuery] = useState<string>("");
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const [day, setDay] = useState<number | null>(null);
-  const [status, setStatus] = useState("week");
+  const [status, setStatus] = useState<string>("week");
   const [isDayMode, setIsDayMode] = useState(
     window.matchMedia("(prefers-color-scheme: light)").matches
   );
 
   useEffect(() => {
-    // Function to check and update the day mode based on system preference
     const updateDayMode = () => {
       setIsDayMode(window.matchMedia("(prefers-color-scheme: light)").matches);
     };
 
-    // Set the initial day mode
     updateDayMode();
 
-    // Add event listener to listen for changes in system preference
     const handleSystemColorSchemeChange = () => {
-      // Update the day mode when system color scheme changes
       updateDayMode();
     };
 
-    // Listen for changes in system preference
     const systemColorSchemeMediaQuery = window.matchMedia(
       "(prefers-color-scheme: light)"
     );
@@ -49,7 +44,6 @@ function App() {
       handleSystemColorSchemeChange
     );
 
-    // Clean up by removing event listener
     return () => {
       systemColorSchemeMediaQuery.removeEventListener(
         "change",
