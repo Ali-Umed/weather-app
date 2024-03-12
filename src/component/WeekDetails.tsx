@@ -118,8 +118,10 @@ export default function WeekDetails({
           <li>
             <a
               onClick={() => GetWeekDate(1)}
-              className={`inline-flex size-8 items-center  hover:border-none  cursor-pointer justify-center rounded border  ${
-                isDayMode ? "bg-white" : "bg-[rgb(36,40,51)] text-white"
+              className={`inline-flex size-8 items-center  hover:border-none hover:text-white  cursor-pointer justify-center rounded border  ${
+                isDayMode
+                  ? "bg-white text-black"
+                  : "bg-[rgb(36,40,51)] text-white "
               }
               hover:bg-[#48aef3]
                rtl:rotate-180`}
@@ -143,12 +145,14 @@ export default function WeekDetails({
           <li>
             <a
               onClick={() => GetWeekDate(1)}
-              className={` block size-8 rounded cursor-pointer  hover:bg-[#48aef3] ${
+              className={` block size-8 rounded cursor-pointer  hover:bg-[#48aef3]  hover:text-white ${
                 !firstWeek
-                  ? " border bg-[rgb(36,40,51)] text-white "
+                  ? " border bg-[rgb(36,40,51)]  "
                   : " border-bg-[#48aef3] bg-[#48aef3] text-white "
               } ${
-                isDayMode ? "bg-white" : "bg-[rgb(36,40,51)] text-white"
+                isDayMode
+                  ? "bg-white  text-black"
+                  : "bg-[rgb(36,40,51)] text-white"
               } text-center leading-8 `}
             >
               1
@@ -157,12 +161,14 @@ export default function WeekDetails({
 
           <li
             onClick={() => GetWeekDate(2)}
-            className={` block size-8 rounded cursor-pointer  hover:bg-[#48aef3] ${
+            className={` block size-8 rounded cursor-pointer  hover:bg-[#48aef3] hover:text-white ${
               firstWeek
-                ? " border bg-[rgb(36,40,51)] text-white"
+                ? " border bg-[rgb(36,40,51)] "
                 : " border-bg-[#48aef3] bg-[#48aef3] text-white"
             }  ${
-              isDayMode ? "bg-white" : "bg-[rgb(36,40,51)] text-white"
+              isDayMode
+                ? "bg-white  text-black "
+                : "bg-[rgb(36,40,51)] text-white"
             } text-center leading-8 `}
           >
             2
@@ -171,8 +177,10 @@ export default function WeekDetails({
           <li>
             <a
               onClick={() => GetWeekDate(2)}
-              className={` ${
-                isDayMode ? "bg-white" : "bg-[rgb(36,40,51)] text-white"
+              className={` hover:text-white ${
+                isDayMode
+                  ? "bg-white  text-black"
+                  : "bg-[rgb(36,40,51)] text-white"
               }  inline-flex size-8 items-center  hover:bg-[#48aef3] hover:border-none cursor-pointer justify-center rounded border border-gray-100  text-gray-900 rtl:rotate-180`}
             >
               <span className="sr-only">Next Page</span>
