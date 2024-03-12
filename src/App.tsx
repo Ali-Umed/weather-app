@@ -57,6 +57,19 @@ function App() {
   };
 
   useEffect(() => {
+    const items = localStorage.getItem(`location`);
+    if (items) {
+      setData(JSON.parse(items));
+    }
+  }, []);
+
+  useEffect(() => {
+    if (data) {
+      localStorage.setItem(`location`, JSON.stringify(data));
+    }
+  }, [data]);
+
+  useEffect(() => {
     const controller = new AbortController();
 
     async function fetchWeather() {
@@ -117,7 +130,7 @@ function App() {
             );
             const geoData = await geoRes.json();
             setData(geoData);
-
+            localStorage.setItem("location", JSON.stringify(data));
             setIsLoading(false);
             setError(null);
           } catch (err) {
@@ -133,16 +146,6 @@ function App() {
       console.error("Geolocation is not supported by this browser.");
     }
   }
-
-  // console.log(
-  //   "day is",
-  //   day,
-  //   "is loading is",
-  //   isLoading,
-  //   "error is",
-  //   error,
-  //   data
-  // );
 
   return (
     <div
