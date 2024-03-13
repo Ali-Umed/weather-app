@@ -9,7 +9,7 @@ export function useLocalStorage() {
     if (items) {
       setData(JSON.parse(items));
     }
-  }, [setData]);
+  }, []);
 
   useEffect(() => {
     if (data) {

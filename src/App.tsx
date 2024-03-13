@@ -46,13 +46,13 @@ function App() {
       } catch (err) {
         setError("Can Not Fetch Data Search Again");
         setIsLoading(false);
+      } finally {
+        setIsLoading(false);
       }
     }
 
     if (query.length >= 3) {
       fetchWeather();
-    } else {
-      setIsLoading(false);
     }
 
     return () => {
