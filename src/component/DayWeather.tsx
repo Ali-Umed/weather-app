@@ -3,7 +3,6 @@ import {
   faWind,
   faCloud,
   faSmog,
-  faTemperature0,
   faTimes,
   faSolarPanel,
 } from "@fortawesome/free-solid-svg-icons";
@@ -94,7 +93,6 @@ export default function DayWeather({
           </div>
         </div>
         <div className="text-lg font-semibold">
-          <FontAwesomeIcon icon={faTemperature0} className="mr-4 size-7 " />
           {convertToFahrenheit(tempmin)}°C - {convertToFahrenheit(tempmax)}°C
           <FontAwesomeIcon
             icon={faTimes}
