@@ -29,6 +29,7 @@ function App() {
   };
 
   useEffect(() => {
+    let timer = 0;
     const controller = new AbortController();
 
     async function fetchWeather() {
@@ -44,7 +45,10 @@ function App() {
         setIsLoading(false);
         setError(null);
       } catch (err) {
-        setError("Can Not Fetch Data Search Again");
+        timer = setTimeout(() => {
+          setError("Can Not Fetch Data Search Again");
+        }, 2000);
+
         setIsLoading(false);
       } finally {
         setIsLoading(false);
@@ -56,6 +60,7 @@ function App() {
     }
 
     return () => {
+      clearTimeout(timer);
       controller.abort();
     };
   }, [query, setData]);
@@ -64,7 +69,7 @@ function App() {
     if (error) {
       const timer = setTimeout(() => {
         setError(null);
-      }, 2000);
+      }, 1000);
 
       return () => {
         clearTimeout(timer);
