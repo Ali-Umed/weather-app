@@ -9,6 +9,7 @@ import DayWeather from "./component/DayWeather";
 import NavBar from "./component/NavBar";
 import Footer from "./component/Footer";
 import ToggleDayWeek from "./component/ToggleDayWeek";
+import { useMode } from "./hook/UseMode";
 
 const key = "7K6G2YBAY7APWRNHC93TFSTHB";
 
@@ -19,36 +20,7 @@ function App() {
   const [error, setError] = useState<string | null>(null);
   const [day, setDay] = useState<number | null>(null);
   const [status, setStatus] = useState<string>("week");
-  const [isDayMode, setIsDayMode] = useState(
-    window.matchMedia("(prefers-color-scheme: light)").matches
-  );
-
-  useEffect(() => {
-    const updateDayMode = () => {
-      setIsDayMode(window.matchMedia("(prefers-color-scheme: light)").matches);
-    };
-
-    updateDayMode();
-
-    const handleSystemColorSchemeChange = () => {
-      updateDayMode();
-    };
-
-    const systemColorSchemeMediaQuery = window.matchMedia(
-      "(prefers-color-scheme: light)"
-    );
-    systemColorSchemeMediaQuery.addEventListener(
-      "change",
-      handleSystemColorSchemeChange
-    );
-
-    return () => {
-      systemColorSchemeMediaQuery.removeEventListener(
-        "change",
-        handleSystemColorSchemeChange
-      );
-    };
-  }, []);
+  const { isDayMode, setIsDayMode } = useMode();
 
   const toggleDayMode = () => {
     setIsDayMode(!isDayMode);
