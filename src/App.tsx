@@ -152,7 +152,7 @@ function App() {
       <div
         className={`${
           isDayMode ? "bg-[#f1f9fe]" : "bg-[rgb(25,27,35)]"
-        } min-h-screen rounded-xl shadow-2xl w-full md:w-11/12 lg:w-11/12 xl:w-10/12 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 relative`}
+        } min-h-[950px] rounded-xl shadow-2xl w-full md:w-11/12 lg:w-11/12 xl:w-10/12 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 relative`}
       >
         <div className="col-span-3">
           <NavBar
