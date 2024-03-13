@@ -1,5 +1,6 @@
 import { FiMapPin, FiMoon, FiSun } from "react-icons/fi";
 import { useState, useEffect } from "react";
+import { GiHummingbird } from "react-icons/gi";
 
 export default function NavBar({
   query,
@@ -58,7 +59,7 @@ export default function NavBar({
       >
         <div className="max-w-screen-lg flex items-center justify-between mx-auto p-4">
           <a href="#" className="flex items-center" onClick={handleHomeClick}>
-            <FiSun className="h-8 w-8 text-[#61b0e6] mr-3" />
+            <GiHummingbird className="h-8 w-8 text-[#61b0e6] mr-3" />
           </a>
 
           <div className="flex flex-row  items-center gap-1">
