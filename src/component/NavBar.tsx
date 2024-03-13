@@ -130,7 +130,7 @@ export default function NavBar({
           <div
             className={`${
               isMenuOpen
-                ? "flex z-50 absolute  right-0 -top-4 md:hidden  "
+                ? "flex z-50 absolute  right-3 -top-0 md:hidden  "
                 : "hidden"
             } md:flex md:w-auto md:order-1  `}
             id="navbar-search"

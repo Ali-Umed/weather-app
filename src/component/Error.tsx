@@ -15,7 +15,7 @@ export default function Error({
         className={`w-full text-yellow-600 border  rounded-lg shadow-xl ${
           isDayMode
             ? "bg-[#fff]"
-            : "bg-[#000000] bg-opacity-25 border-gray-500 text-yellow-200"
+            : "bg-[#000000] bg-opacity-10 border-gray-500 text-yellow-200"
         }`}
       >
         <div className="flex items-center justify-between px-6 py-4 mx-auto">
