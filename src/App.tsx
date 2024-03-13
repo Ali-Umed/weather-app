@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Loading from "./component/Loading";
-import { QuickDetails, WeatherData } from "./component/QuickDetails";
+import { QuickDetails } from "./component/QuickDetails";
 import StaticDetails from "./component/StaticDetails";
 import StaticWeekDetails from "./component/StaticWeekDetails";
 import Error from "./component/Error";
@@ -22,11 +22,11 @@ function App() {
   const [day, setDay] = useState<number | null>(null);
   const [status, setStatus] = useState<string>("week");
   const { isDayMode, setIsDayMode } = useMode();
+  const { data, setData } = useLocalStorage();
 
   const toggleDayMode = () => {
     setIsDayMode(!isDayMode);
   };
-  const { data, setData } = useLocalStorage();
 
   useEffect(() => {
     const controller = new AbortController();
@@ -58,7 +58,7 @@ function App() {
     return () => {
       controller.abort();
     };
-  }, [query]);
+  }, [query, setData]);
 
   useEffect(() => {
     if (error) {
@@ -87,7 +87,6 @@ function App() {
             );
             const geoData = await geoRes.json();
             setData(geoData);
-            localStorage.setItem("location", JSON.stringify(data));
             setIsLoading(false);
             setError(null);
           } catch (err) {
