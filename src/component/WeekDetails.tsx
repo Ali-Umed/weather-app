@@ -38,7 +38,7 @@ export default function WeekDetails({
   return (
     <>
       <p
-        className={`text-center font-serif text-lg ${
+        className={`text-center font-serif text-base md:text-lg ${
           isDayMode ? " text-black" : " text-white "
         }`}
       >
