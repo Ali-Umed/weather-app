@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { WiDayShowers } from "react-icons/wi";
 
 export default function StaticWeekDetails({

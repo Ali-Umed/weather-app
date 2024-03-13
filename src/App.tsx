@@ -1,5 +1,3 @@
-// App.js
-
 import { useEffect, useState } from "react";
 import Loading from "./component/Loading";
 import { QuickDetails, WeatherData } from "./component/QuickDetails";
@@ -50,7 +48,7 @@ function App() {
         handleSystemColorSchemeChange
       );
     };
-  }, []); // Run this effect only once on component mount
+  }, []);
 
   const toggleDayMode = () => {
     setIsDayMode(!isDayMode);
@@ -74,8 +72,6 @@ function App() {
 
     async function fetchWeather() {
       setIsLoading(true);
-      // setData(null);
-      // setError(null);
 
       try {
         const geoRes = await fetch(
