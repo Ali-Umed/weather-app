@@ -37,8 +37,15 @@ export default function WeekDetails({
 
   return (
     <>
+      <p
+        className={`text-center font-serif text-lg ${
+          isDayMode ? " text-black" : " text-white "
+        }`}
+      >
+        Clicl Each Day to See More Detail
+      </p>
       <div
-        className={`grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4 justify-items-center overflow-y-auto max-h-[460px]   lg:h-screen  lg:max-h-screen  `}
+        className={`grid grid-cols-1 font-serif md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4 justify-items-center overflow-y-auto max-h-[460px]   lg:h-screen  lg:max-h-screen  `}
       >
         {weekWeather?.map((day, index) => (
           <div
@@ -148,10 +155,10 @@ export default function WeekDetails({
               className={` block size-8 rounded cursor-pointer  hover:bg-[#48aef3]  hover:text-white ${
                 !firstWeek
                   ? " border bg-[rgb(36,40,51)]  "
-                  : " border-bg-[#48aef3] bg-[#48aef3] text-white "
+                  : " border-bg-[#48aef3] bg-[#48aef3] text-white  "
               } ${
                 isDayMode
-                  ? "bg-white  text-black"
+                  ? "bg-white  text-slate-950 "
                   : "bg-[rgb(36,40,51)] text-white"
               } text-center leading-8 `}
             >
@@ -163,11 +170,11 @@ export default function WeekDetails({
             onClick={() => GetWeekDate(2)}
             className={` block size-8 rounded cursor-pointer  hover:bg-[#48aef3] hover:text-white ${
               firstWeek
-                ? " border bg-[rgb(36,40,51)] "
+                ? " border bg-[rgb(36,40,51)]  "
                 : " border-bg-[#48aef3] bg-[#48aef3] text-white"
             }  ${
               isDayMode
-                ? "bg-white  text-black "
+                ? "bg-white  text-slate-950 "
                 : "bg-[rgb(36,40,51)] text-white"
             } text-center leading-8 `}
           >
