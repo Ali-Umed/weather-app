@@ -5,6 +5,8 @@ Welcome to the Weather App! This React-based web application allows you to check
 ## Features
 
 - **Real-time Weather Data**: Get up-to-date weather information instantly.
+- **Each Day Data**: Get 15 day Data and clickable to see more Information.
+- **Your Data**: Get Data from your location when click the lcation icon.
 - **Responsive Design**: The app is designed to work flawlessly on various devices, including desktops, tablets, and mobile phones.
 - **Day/Night Mode**: Toggle between day and night mode to suit your preference.
 - **Detailed Weather Information**: View detailed weather data including temperature, humidity, wind speed, and more.
