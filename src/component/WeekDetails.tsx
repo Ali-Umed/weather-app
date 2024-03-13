@@ -169,7 +169,7 @@ export default function WeekDetails({
             className={` block size-8 rounded cursor-pointer  hover:bg-[#48aef3] hover:text-white ${
               firstWeek
                 ? " border bg-[rgb(36,40,51)]  "
-                : " border-bg-[#48aef3] bg-[#48aef3] text-white"
+                : " border-bg-[#48aef3] bg-[#48aef3]"
             }  ${
               isDayMode
                 ? "bg-white  text-slate-950 "
