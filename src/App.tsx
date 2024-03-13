@@ -10,11 +10,12 @@ import NavBar from "./component/NavBar";
 import Footer from "./component/Footer";
 import ToggleDayWeek from "./component/ToggleDayWeek";
 import { useMode } from "./hook/UseMode";
+import { useLocalStorage } from "./hook/useLocalSorage";
 
 const key = "7K6G2YBAY7APWRNHC93TFSTHB";
 
 function App() {
-  const [data, setData] = useState<WeatherData | null>(null);
+  // const [data, setData] = useState<WeatherData | null>(null);
   const [query, setQuery] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
@@ -25,19 +26,7 @@ function App() {
   const toggleDayMode = () => {
     setIsDayMode(!isDayMode);
   };
-
-  useEffect(() => {
-    const items = localStorage.getItem(`location`);
-    if (items) {
-      setData(JSON.parse(items));
-    }
-  }, []);
-
-  useEffect(() => {
-    if (data) {
-      localStorage.setItem(`location`, JSON.stringify(data));
-    }
-  }, [data]);
+  const { data, setData } = useLocalStorage();
 
   useEffect(() => {
     const controller = new AbortController();
