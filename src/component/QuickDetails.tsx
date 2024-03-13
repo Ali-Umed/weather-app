@@ -38,8 +38,10 @@ export function QuickDetails({
     }
   };
 
-  const convertToFahrenheit = (temp: number | undefined) => {
-    return `${Math.round((temp ?? -32) * 0.5555555555)}°C`;
+  const convertFahrenheit = (temp: number | undefined) => {
+    if (temp) {
+      return `${Math.round((temp - 32) * 0.5555555555)}°C `;
+    }
   };
 
   return (
@@ -62,7 +64,7 @@ export function QuickDetails({
       </h1>
       {getWeatherIcon()}
       <div className="text-5xl font-bold mt-4">
-        {convertToFahrenheit(data?.currentConditions.temp)}
+        {convertFahrenheit(data?.currentConditions.temp)}
       </div>
       <div className="text-xl font-semibold mt-5 text-center">
         Last Time Update: {data?.currentConditions.datetime}
