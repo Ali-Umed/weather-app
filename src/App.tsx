@@ -12,7 +12,7 @@ import ToggleDayWeek from "./component/ToggleDayWeek";
 import { useMode } from "./hook/UseMode";
 import { useLocalStorage } from "./hook/useLocalSorage";
 
-// it is not bug just left key free to use 
+// it is not bug or issue, just left key free to use or test 
 const key = "7K6G2YBAY7APWRNHC93TFSTHB";
 
 function App() {
