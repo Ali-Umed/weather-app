@@ -117,28 +117,28 @@ export default function DayWeather({
         <div className="flex items-center  w-32 h-12  justify-start">
           <FontAwesomeIcon
             icon={faSolarPanel}
-            className="mr-4 text-green-700 size-8 w-12 h-12"
+            className="mr-4 text-green-700  w-12 h-12"
           />
           <span>{solarradiation}</span>
         </div>
         <div className="flex items-center  w-32 h-12 ">
           <FontAwesomeIcon
             icon={faSolarPanel}
-            className="mr-4 text-green-700 size-8  w-12 h-12 "
+            className="mr-4 text-green-700   w-12 h-12 "
           />
           <span>{solarenergy}</span>
         </div>
         <div className="flex items-center  w-32 h-12 ">
           <FontAwesomeIcon
             icon={faWind}
-            className="mr-4 size-7 text-gray-500 w-12 h-12 "
+            className="mr-4  text-gray-500 w-12 h-12 "
           />
           <span>{pressure}</span>
         </div>
         <div className="flex items-center  w-32 h-12 ">
           <FontAwesomeIcon
             icon={faSmog}
-            className={`mr-4 size-7  w-12 h-12 ${
+            className={`mr-4   w-12 h-12 ${
               !isDayMode ? "text-white text-opacity-90" : "text-gray-500"
             } `}
           />
@@ -147,7 +147,7 @@ export default function DayWeather({
         <div className="flex items-center  w-32 h-12 ">
           <FontAwesomeIcon
             icon={faCloud}
-            className={`mr-4 size-7  w-12 h-12 ${
+            className={`mr-4   w-12 h-12 ${
               !isDayMode ? "text-white text-opacity-90" : "text-gray-500"
             } `}
           />
@@ -156,7 +156,7 @@ export default function DayWeather({
         <div className="flex items-center  w-32 h-12 ">
           <FontAwesomeIcon
             icon={faCloudSun}
-            className={`mr-4 size-7 w-12 h-12 ${
+            className={`mr-4  w-12 h-12 ${
               !isDayMode ? "text-white text-opacity-90" : "text-gray-500"
             } `}
           />
@@ -173,14 +173,14 @@ export default function DayWeather({
         <div className="flex items-center  w-32 h-12 ">
           <FontAwesomeIcon
             icon={faWind}
-            className="mr-4 size-7 w-12 h-12 text-gray-500 "
+            className="mr-4  w-12 h-12 text-gray-500 "
           />
           <span>{severerisk}</span>
         </div>
         <div className="flex items-center  w-32 h-12 ">
           <FontAwesomeIcon
             icon={faSmog}
-            className={`mr-4 size-7 w-12 h-12 ${
+            className={`mr-4  w-12 h-12 ${
               !isDayMode ? "text-white text-opacity-90" : "text-gray-500"
             } `}
           />
