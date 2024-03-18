@@ -105,82 +105,82 @@ export default function DayWeather({
         </div>
       </div>
       <hr className="my-4" />
-      <div className="grid grid-cols-2 gap-2 justify-items-center">
-        <div className="flex items-center">
+      <div className="grid grid-cols-2 gap-2 justify-items-center  ">
+        <div className="flex items-center  w-32 h-12 justify-start">
           <WiSunrise className="w-12 h-12 mr-4 text-yellow-500" />
           <span>{sunrise}</span>
         </div>
-        <div className="flex items-center">
+        <div className="flex items-center  w-32 h-12 justify-start ">
           <WiSunset className="w-12 h-12 mr-4 text-yellow-600" />
           <span>{sunset}</span>
         </div>
-        <div className="flex items-center">
+        <div className="flex items-center  w-32 h-12  justify-start">
           <FontAwesomeIcon
             icon={faSolarPanel}
-            className="mr-4 text-green-700 size-8"
+            className="mr-4 text-green-700 size-8 w-12 h-12"
           />
           <span>{solarradiation}</span>
         </div>
-        <div className="flex items-center">
+        <div className="flex items-center  w-32 h-12 ">
           <FontAwesomeIcon
             icon={faSolarPanel}
-            className="mr-4 text-green-700 size-8 "
+            className="mr-4 text-green-700 size-8  w-12 h-12 "
           />
           <span>{solarenergy}</span>
         </div>
-        <div className="flex items-center">
+        <div className="flex items-center  w-32 h-12 ">
           <FontAwesomeIcon
             icon={faWind}
-            className="mr-4 size-7 text-gray-500 "
+            className="mr-4 size-7 text-gray-500 w-12 h-12 "
           />
           <span>{pressure}</span>
         </div>
-        <div className="flex items-center">
+        <div className="flex items-center  w-32 h-12 ">
           <FontAwesomeIcon
             icon={faSmog}
-            className={`mr-4 size-7 ${
+            className={`mr-4 size-7  w-12 h-12 ${
               !isDayMode ? "text-white text-opacity-90" : "text-gray-500"
             } `}
           />
           <span>{dew}</span>
         </div>
-        <div className="flex items-center">
+        <div className="flex items-center  w-32 h-12 ">
           <FontAwesomeIcon
             icon={faCloud}
-            className={`mr-4 size-7 ${
+            className={`mr-4 size-7  w-12 h-12 ${
               !isDayMode ? "text-white text-opacity-90" : "text-gray-500"
             } `}
           />
           <span>{cloudcover}</span>
         </div>
-        <div className="flex items-center">
+        <div className="flex items-center  w-32 h-12 ">
           <FontAwesomeIcon
             icon={faCloudSun}
-            className={`mr-4 size-7 ${
+            className={`mr-4 size-7 w-12 h-12 ${
               !isDayMode ? "text-white text-opacity-90" : "text-gray-500"
             } `}
           />
           <span>{visibility}</span>
         </div>
-        <div className="flex items-center">
+        <div className="flex items-center  w-32 h-12 ">
           <WiWindy className="w-12 h-12 mr-4 text-gray-500" />
           <span>{windspeed}</span>
         </div>
-        <div className="flex items-center">
+        <div className="flex items-center  w-32 h-12 ">
           <WiStrongWind className="w-12 h-12 mr-4 text-gray-500" />
           <span>{windgust}</span>
         </div>
-        <div className="flex items-center">
+        <div className="flex items-center  w-32 h-12 ">
           <FontAwesomeIcon
             icon={faWind}
-            className="mr-4 size-7 text-gray-500 "
+            className="mr-4 size-7 w-12 h-12 text-gray-500 "
           />
           <span>{severerisk}</span>
         </div>
-        <div className="flex items-center">
+        <div className="flex items-center  w-32 h-12 ">
           <FontAwesomeIcon
             icon={faSmog}
-            className={`mr-4 size-7 ${
+            className={`mr-4 size-7 w-12 h-12 ${
               !isDayMode ? "text-white text-opacity-90" : "text-gray-500"
             } `}
           />
