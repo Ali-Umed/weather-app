@@ -3,7 +3,9 @@ import { GiHummingbird } from "react-icons/gi";
 export default function Footer({ isDayMode }: { isDayMode: boolean }) {
   return (
     <footer
-      className={`col-span-3   ${isDayMode ? "bg-[#fff]" : "bg-[#00000059]"}`}
+      className={`col-span-3 rounded-b-xl shadow-lg mt-8 ${
+        isDayMode ? "bg-white" : "bg-[rgb(36,40,51)]"
+      }`}
       id="footer"
     >
       <div className={` ${isDayMode ? "bg-white" : "bg-[#00000000]"}   pt-1`}>

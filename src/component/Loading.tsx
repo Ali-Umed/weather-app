@@ -5,7 +5,7 @@ export default function Loading({ isLoading }: { isLoading: boolean }) {
         isLoading ? "visible" : "invisible"
       }`}
     >
-      <div className="w-12 h-12 border-t-4 border-blue-500 rounded-full animate-spin"></div>
+      <div className="w-12 h-12 border-t-4 border-blue-500 rounded-full animate-spin bg-white/60 dark:bg-black/60 backdrop-blur-md"></div>
     </div>
   );
 }

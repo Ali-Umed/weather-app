@@ -80,8 +80,8 @@ export default function DayWeather({
 
   return (
     <div
-      className={`rounded-xl shadow-md p-4 mt-3 ${
-        isDayMode ? "bg-white text-black" : "bg-[rgb(36,40,51)] text-white "
+      className={`rounded-xl shadow-lg p-6 mt-6 w-full max-w-2xl mx-auto ${
+        isDayMode ? "bg-white text-black" : "bg-[rgb(36,40,51)] text-white"
       }`}
     >
       <div className="flex justify-between items-center mb-4">

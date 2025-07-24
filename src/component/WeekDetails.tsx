@@ -45,7 +45,7 @@ export default function WeekDetails({
         Click Each Day to See More Detail
       </p>
       <div
-        className={`grid grid-cols-1 font-serif md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4 justify-items-center overflow-y-auto max-h-[460px]   lg:h-screen  lg:max-h-screen   `}
+        className={`grid grid-cols-1 font-serif md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4 justify-items-center overflow-y-auto max-h-[460px]`}
       >
         {weekWeather?.map((day, index) => (
           <div
@@ -54,17 +54,11 @@ export default function WeekDetails({
               setStatus("day");
             }}
             key={index}
-            className={`${
+            className={`transition hover:scale-105 hover:shadow-xl cursor-pointer p-4 rounded-xl shadow-md w-2/3 md:w-full ${
               isDayMode
                 ? "bg-white text-black"
-                : "bg-[rgb(36,40,51)] text-white "
-            } p-4 rounded-lg shadow-md items-center overflow-clip justify-center flex w-2/3  md:w-full cursor-pointer max-h-[400px]   ${
-              index === weekWeather.length - 1
-                ? "lg:col-start-2 lg:col-end-3"
-                : ""
-            }
-        ${index === weekWeather.length - 1 ? "md:col-start-1 md:col-end-3" : ""}
-        `}
+                : "bg-[rgb(36,40,51)] text-white"
+            }`}
           >
             <div className="flex flex-col justify-center items-center h-full">
               <h1 className="text-lg font-semibold mb-2">

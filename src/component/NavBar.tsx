@@ -53,18 +53,23 @@ export default function NavBar({
   return (
     <div>
       <nav
-        className={`${
-          isDayMode ? "bg-[#fff]" : "bg-[#00000059]"
-        } border-gray-200`}
+        className={`rounded-xl shadow-lg mt-4 mx-2 ${
+          isDayMode ? "bg-white" : "bg-[rgb(36,40,51)]"
+        }`}
       >
-        <div className="max-w-screen-lg flex items-center justify-between mx-auto p-4">
-          <a href="#" className="flex items-center" onClick={handleHomeClick}>
-            <GiHummingbird className="h-8 w-8 text-[#61b0e6] mr-3" />
+        <div className="flex items-center justify-between px-6 py-4">
+          <a
+            href="#"
+            className="flex items-center gap-2"
+            onClick={handleHomeClick}
+          >
+            <GiHummingbird className="h-8 w-8 text-[#61b0e6] " />
+            <span className="text-xl font-bold text-[#61b0e6]">WeatherApp</span>
           </a>
 
-          <div className="flex flex-row  items-center gap-1">
+          <div className="flex    items-center gap-4">
             <FiMapPin
-              className="w-5 h-5  text-[#61b0e6]"
+              className="w-6 h-6 text-[#61b0e6] cursor-pointer hover:text-cyan-500 transition"
               onClick={getLocation}
             />
             <div className="relative block">
