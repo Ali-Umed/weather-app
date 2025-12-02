@@ -38,14 +38,14 @@ export default function WeekDetails({
   return (
     <>
       <p
-        className={`text-center  text-base md:text-lg ${
-          isDayMode ? " text-black" : " text-white "
+        className={`text-center text-base md:text-lg font-semibold mb-2 ${
+          isDayMode ? "text-gray-700" : "text-gray-300"
         }`}
       >
         Click Each Day to See More Detail
       </p>
       <div
-        className={`grid grid-cols-1 font-serif md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4 justify-items-center overflow-y-auto max-h-[460px]`}
+        className={`grid grid-cols-1 font-serif md:grid-cols-2 lg:grid-cols-3 gap-4 mt-6 justify-items-center overflow-y-auto max-h-[460px]`}
       >
         {weekWeather?.map((day, index) => (
           <div
@@ -54,83 +54,85 @@ export default function WeekDetails({
               setStatus("day");
             }}
             key={index}
-            className={`transition hover:scale-105 hover:shadow-xl cursor-pointer p-4 rounded-xl shadow-md w-2/3 md:w-full ${
+            className={`weather-card cursor-pointer p-6 rounded-2xl w-2/3 md:w-full smooth-transition hover-lift animate-fadeIn stagger-${Math.min(index + 1, 7)} ${
               isDayMode
-                ? "bg-white text-black"
-                : "bg-[rgb(36,40,51)] text-white"
+                ? "glass-day hover:bg-white/60"
+                : "glass-night hover:bg-slate-700/40"
             }`}
           >
             <div className="flex flex-col justify-center items-center h-full">
-              <h1 className="text-lg font-semibold mb-2">
+              <h1 className={`text-lg font-bold mb-3 ${
+                isDayMode ? "text-gray-800" : "text-gray-100"
+              }`}>
                 {index == 0 && firstWeek
                   ? "Today"
                   : index == 1 && firstWeek
                   ? "Tomorrow"
                   : day.datetime}
               </h1>
-              {day.icon === "cloudy" ||
-              day.icon === "partly-cloudy-night" ||
-              day.icon === "partly-cloudy-day" ? (
-                <WiCloudy
-                  size={128}
-                  color={`${isDayMode ? "black" : "white"}`}
-                />
-              ) : day.icon === "snow" ? (
-                <WiSnow size={128} color={`${isDayMode ? "black" : "white"}`} />
-              ) : day.icon === "fog" ? (
-                <WiFog size={128} color={`${isDayMode ? "black" : "white"}`} />
-              ) : day.icon === "rain" ? (
-                <WiRain size={128} color={`${isDayMode ? "black" : "white"}`} />
-              ) : day.icon === "clear-day" ? (
-                <WiDaySunny
-                  size={128}
-                  color={`${isDayMode ? "black" : "white"}`}
-                />
-              ) : day.icon === "clear-night" ? (
-                <WiNightClear
-                  size={128}
-                  color={`${isDayMode ? "black" : "white"}`}
-                />
-              ) : day.icon === "wind" ? (
-                <WiWindy
-                  size={128}
-                  color={`${isDayMode ? "black" : "white"}`}
-                />
-              ) : (
-                <WiDaySunny
-                  size={88}
-                  className="mb-4"
-                  color={`${isDayMode ? "black" : "white"}`}
-                />
-              )}
-              {
-                <>
-                  {Math.round((day.tempmin - 32) * 0.5555555555)}
-                  °C - {Math.round((day.tempmax - 32) * 0.5555555555)}
-                  °C
-                </>
-              }
+              <div className="my-2">
+                {day.icon === "cloudy" ||
+                day.icon === "partly-cloudy-night" ||
+                day.icon === "partly-cloudy-day" ? (
+                  <WiCloudy
+                    size={128}
+                    color={`${isDayMode ? "#334155" : "#e2e8f0"}`}
+                  />
+                ) : day.icon === "snow" ? (
+                  <WiSnow size={128} color={`${isDayMode ? "#334155" : "#e2e8f0"}`} />
+                ) : day.icon === "fog" ? (
+                  <WiFog size={128} color={`${isDayMode ? "#334155" : "#e2e8f0"}`} />
+                ) : day.icon === "rain" ? (
+                  <WiRain size={128} color={`${isDayMode ? "#334155" : "#e2e8f0"}`} />
+                ) : day.icon === "clear-day" ? (
+                  <WiDaySunny
+                    size={128}
+                    color={`${isDayMode ? "#334155" : "#e2e8f0"}`}
+                  />
+                ) : day.icon === "clear-night" ? (
+                  <WiNightClear
+                    size={128}
+                    color={`${isDayMode ? "#334155" : "#e2e8f0"}`}
+                  />
+                ) : day.icon === "wind" ? (
+                  <WiWindy
+                    size={128}
+                    color={`${isDayMode ? "#334155" : "#e2e8f0"}`}
+                  />
+                ) : (
+                  <WiDaySunny
+                    size={88}
+                    className="mb-4"
+                    color={`${isDayMode ? "#334155" : "#e2e8f0"}`}
+                  />
+                )}
+              </div>
+              <div className={`text-lg font-semibold ${
+                isDayMode ? "text-gray-700" : "text-gray-200"
+              }`}>
+                {Math.round((day.tempmin - 32) * 0.5555555555)}
+                °C - {Math.round((day.tempmax - 32) * 0.5555555555)}
+                °C
+              </div>
             </div>
           </div>
         ))}
       </div>
-      <div className="mt-3">
-        <ol className="flex justify-center gap-1 text-xs font-medium">
+      <div className="mt-6">
+        <ol className="flex justify-center gap-2 text-xs font-medium">
           <li>
             <a
               onClick={() => GetWeekDate(1)}
-              className={`inline-flex size-8 items-center  hover:border-none hover:text-white  cursor-pointer justify-center rounded border  ${
+              className={`inline-flex size-9 items-center justify-center rounded-lg border cursor-pointer smooth-transition hover-scale ${
                 isDayMode
-                  ? "bg-white text-black"
-                  : "bg-[rgb(36,40,51)] text-white "
-              }
-              hover:bg-[#48aef3]
-               rtl:rotate-180`}
+                  ? "glass-day hover:bg-sky-500 hover:text-white"
+                  : "glass-night hover:bg-sky-500 hover:text-white"
+              }`}
             >
               <span className="sr-only">Prev Page</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-3 w-3"
+                className="h-4 w-4"
                 viewBox="0 0 20 20"
                 fill="currentColor"
               >
@@ -146,13 +148,11 @@ export default function WeekDetails({
           <li>
             <a
               onClick={() => GetWeekDate(1)}
-              className={` block size-8 rounded cursor-pointer  hover:bg-[#48aef3]  hover:text-white  ${
+              className={`block size-9 rounded-lg cursor-pointer smooth-transition text-center leading-9 font-semibold ${
                 !firstWeek
-                  ? " border bg-[rgb(36,40,51)]  "
-                  : " border-bg-[#48aef3] bg-[#48aef3]  "
-              } ${
-                isDayMode ? " bg-white   " : "bg-[rgb(36,40,51)] text-white"
-              } text-center leading-8 `}
+                  ? isDayMode ? "glass-day" : "glass-night"
+                  : isDayMode ? "bg-sky-500 text-white" : "bg-sky-500 text-white"
+              } hover:bg-sky-500 hover:text-white`}
             >
               1
             </a>
@@ -160,15 +160,11 @@ export default function WeekDetails({
 
           <li
             onClick={() => GetWeekDate(2)}
-            className={` block size-8 rounded cursor-pointer  hover:bg-[#48aef3] hover:text-white ${
+            className={`block size-9 rounded-lg cursor-pointer smooth-transition text-center leading-9 font-semibold ${
               firstWeek
-                ? " border bg-[rgb(36,40,51)]  "
-                : " border-bg-[#48aef3] bg-[#48aef3]"
-            }  ${
-              isDayMode
-                ? "bg-white  text-slate-950 "
-                : "bg-[rgb(36,40,51)] text-white"
-            } text-center leading-8 `}
+                ? isDayMode ? "glass-day" : "glass-night"
+                : isDayMode ? "bg-sky-500 text-white" : "bg-sky-500 text-white"
+            } hover:bg-sky-500 hover:text-white`}
           >
             2
           </li>
@@ -176,16 +172,16 @@ export default function WeekDetails({
           <li>
             <a
               onClick={() => GetWeekDate(2)}
-              className={` hover:text-white ${
+              className={`inline-flex size-9 items-center justify-center rounded-lg border cursor-pointer smooth-transition hover-scale ${
                 isDayMode
-                  ? "bg-white  text-black"
-                  : "bg-[rgb(36,40,51)] text-white"
-              }  inline-flex size-8 items-center  hover:bg-[#48aef3] hover:border-none cursor-pointer justify-center rounded border border-gray-100  text-gray-900 rtl:rotate-180`}
+                  ? "glass-day hover:bg-sky-500 hover:text-white"
+                  : "glass-night hover:bg-sky-500 hover:text-white"
+              }`}
             >
               <span className="sr-only">Next Page</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-3 w-3"
+                className="h-4 w-4"
                 viewBox="0 0 20 20"
                 fill="currentColor"
               >

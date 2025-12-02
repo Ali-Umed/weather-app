@@ -1,3 +1,301 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    /* Day Mode Colors */
+    --day-bg-start: #e0f2fe;
+    --day-bg-end: #bae6fd;
+    --day-card-bg: rgba(255, 255, 255, 0.7);
+    --day-glass-bg: rgba(255, 255, 255, 0.5);
+    --day-text-primary: #0f172a;
+    --day-text-secondary: #475569;
+    --day-accent: #0ea5e9;
+    --day-accent-hover: #0284c7;
+    
+    /* Night Mode Colors */
+    --night-bg-start: #0f172a;
+    --night-bg-end: #1e293b;
+    --night-card-bg: rgba(30, 41, 59, 0.7);
+    --night-glass-bg: rgba(51, 65, 85, 0.5);
+    --night-text-primary: #f1f5f9;
+    --night-text-secondary: #cbd5e1;
+    --night-accent: #38bdf8;
+    --night-accent-hover: #7dd3fc;
+    
+    /* Gradients */
+    --gradient-day: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --gradient-night: linear-gradient(135deg, #434343 0%, #000000 100%);
+    --gradient-accent: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.2);
+    --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.25);
+    
+    /* Timing Functions */
+    --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  /* Glassmorphism Effect */
+  .glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .glass-day {
+    background: var(--day-glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  .glass-night {
+    background: var(--night-glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Gradient Backgrounds */
+  .gradient-bg-day {
+    background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 50%, #93c5fd 100%);
+    position: relative;
+  }
+  
+  .gradient-bg-day::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: 
+      radial-gradient(at 20% 50%, hsla(210, 100%, 70%, 0.3) 0px, transparent 50%),
+      radial-gradient(at 80% 20%, hsla(240, 100%, 70%, 0.2) 0px, transparent 50%);
+    pointer-events: none;
+  }
+  
+  .gradient-bg-night {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+    position: relative;
+  }
+  
+  .gradient-bg-night::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: 
+      radial-gradient(at 20% 50%, hsla(220, 60%, 30%, 0.2) 0px, transparent 50%),
+      radial-gradient(at 80% 20%, hsla(260, 60%, 40%, 0.15) 0px, transparent 50%);
+    pointer-events: none;
+  }
+  
+  /* Card Styles */
+  .weather-card {
+    @apply rounded-2xl transition-all duration-300;
+    box-shadow: var(--shadow-md);
+  }
+  
+  .weather-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  /* Button Styles */
+  .btn-primary {
+    @apply px-6 py-3 rounded-xl font-semibold transition-all duration-300;
+    background: var(--gradient-accent);
+    color: white;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  /* Input Styles */
+  .input-modern {
+    @apply rounded-xl transition-all duration-300;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .input-modern:focus {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-md);
+  }
+}
+
+@layer utilities {
+  /* Smooth Transitions */
+  .smooth-transition {
+    transition: all 0.3s var(--ease-smooth);
+  }
+  
+  .smooth-transition-slow {
+    transition: all 0.5s var(--ease-smooth);
+  }
+  
+  /* Text Gradients */
+  .text-gradient {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Hover Effects */
+  .hover-lift {
+    transition: transform 0.3s var(--ease-smooth);
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-4px);
+  }
+  
+  .hover-scale {
+    transition: transform 0.3s var(--ease-smooth);
+  }
+  
+  .hover-scale:hover {
+    transform: scale(1.05);
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Animation Utilities */
+.animate-fadeIn {
+  animation: fadeIn 0.6s var(--ease-smooth) forwards;
+}
+
+.animate-slideInLeft {
+  animation: slideInLeft 0.5s var(--ease-smooth) forwards;
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.5s var(--ease-smooth) forwards;
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Stagger Animation Delays */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+.stagger-6 { animation-delay: 0.6s; }
+.stagger-7 { animation-delay: 0.7s; }
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.5);
+}

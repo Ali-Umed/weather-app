@@ -53,30 +53,33 @@ export default function NavBar({
   return (
     <div>
       <nav
-        className={`rounded-xl shadow-lg mt-4 mx-2 ${
-          isDayMode ? "bg-white" : "bg-[rgb(36,40,51)]"
+        className={`rounded-2xl mx-4 mt-4 mb-2 smooth-transition ${
+          isDayMode ? "glass-day" : "glass-night"
         }`}
+        style={{ boxShadow: "var(--shadow-md)" }}
       >
         <div className="flex items-center justify-between px-6 py-4">
           <a
             href="#"
-            className="flex items-center gap-2"
+            className="flex items-center gap-3 group"
             onClick={handleHomeClick}
           >
-            <GiHummingbird className="h-8 w-8 text-[#61b0e6] " />
-            <span className="text-xl font-bold text-[#61b0e6]">WeatherApp</span>
+            <GiHummingbird className="h-9 w-9 text-sky-500 group-hover:scale-110 smooth-transition" />
+            <span className="text-xl font-bold bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent">
+              WeatherApp
+            </span>
           </a>
 
-          <div className="flex    items-center gap-4">
+          <div className="flex items-center gap-4">
             <FiMapPin
-              className="w-6 h-6 text-[#61b0e6] cursor-pointer hover:text-cyan-500 transition"
+              className="w-6 h-6 text-sky-500 cursor-pointer hover-scale smooth-transition"
               onClick={getLocation}
             />
             <div className="relative block">
               <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                 <span className="sr-only">Location icon</span>
                 <svg
-                  className="w-4 h-4 text-[#61b0e6]"
+                  className="w-4 h-4 text-sky-500"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -98,12 +101,12 @@ export default function NavBar({
                 onChange={(e) => setQuery(e.target.value)}
                 type="text"
                 id="search-navbar"
-                className={`block w-full p-2 pl-10 text-sm text-gray-900 border rounded-lg ${
+                className={`block w-full p-2.5 pl-10 text-sm rounded-xl smooth-transition ${
                   isDayMode
-                    ? "bg-[#F1F9FE] border-[#90c0df] focus:ring-[#90c0df] focus:outline-none focus:border-[#90c0df]"
-                    : "bg-[#00000000] text-white border-gray-600 focus:ring-[#90aec2da] focus:outline-none focus:border-[#83a0b4d5]"
-                }`}
-                placeholder="Search..."
+                    ? "bg-white/60 border border-sky-200 text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-sky-400 focus:border-transparent"
+                    : "bg-slate-800/50 border border-slate-600 text-white placeholder-gray-400 focus:ring-2 focus:ring-sky-500 focus:border-transparent"
+                } outline-none`}
+                placeholder="Search location..."
               />
             </div>
           </div>
@@ -113,7 +116,7 @@ export default function NavBar({
               onClick={toggleMenu}
               className={`${
                 isMenuOpen ? "invisible" : ""
-              } md:hidden inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-[#90c0df] rounded-lg  focus:outline-none focus:ring-1 focus:ring-[#90c0df] `}
+              } md:hidden inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-sky-500 rounded-lg hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-sky-400 smooth-transition`}
             >
               <span className="sr-only">Open main menu</span>
               <svg
@@ -136,25 +139,26 @@ export default function NavBar({
           <div
             className={`${
               isMenuOpen
-                ? "flex z-50 absolute  right-3 -top-0 md:hidden  "
+                ? "flex z-50 absolute right-6 top-4 md:hidden animate-slideInRight"
                 : "hidden"
-            } md:flex md:w-auto md:order-1  `}
+            } md:flex md:w-auto md:order-1`}
             id="navbar-search"
           >
             <ul
-              className={`  flex flex-col items-center p-4 md:p-0 mt-4 font-medium rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 ${
+              className={`flex flex-col items-center p-4 md:p-0 mt-4 font-medium rounded-xl md:flex-row md:space-x-8 md:mt-0 md:border-0 smooth-transition ${
                 isDayMode
-                  ? "bg-[#fff] border border-gray-300 "
-                  : " border border-gray-500   "
-              }
-              ${isDayMode && isMenuOpen && "bg-[#00000059] "}
-              ${!isDayMode && isMenuOpen && "bg-black "}
-              `}
+                  ? "glass-day"
+                  : "glass-night"
+              }`}
             >
               <li>
                 <a
                   href="#"
-                  className="block py-2 pl-3 pr-4 text-gray-500 hover:text-cyan-600 rounded md:p-0"
+                  className={`block py-2 px-4 rounded-lg smooth-transition ${
+                    isDayMode
+                      ? "text-gray-700 hover:text-sky-600 hover:bg-white/20"
+                      : "text-gray-300 hover:text-sky-400 hover:bg-white/10"
+                  }`}
                   aria-current="page"
                   onClick={handleHomeClick}
                 >
@@ -164,7 +168,11 @@ export default function NavBar({
               <li>
                 <a
                   href="#footer"
-                  className="block py-2 pl-3 pr-4 text-gray-500 rounded hover:text-cyan-600 md:p-0"
+                  className={`block py-2 px-4 rounded-lg smooth-transition ${
+                    isDayMode
+                      ? "text-gray-700 hover:text-sky-600 hover:bg-white/20"
+                      : "text-gray-300 hover:text-sky-400 hover:bg-white/10"
+                  }`}
                   onClick={handleAboutClick}
                 >
                   About
@@ -172,7 +180,7 @@ export default function NavBar({
               </li>
               <li>
                 <div
-                  className="relative w-10 h-6 flex items-center cursor-pointer"
+                  className="relative w-14 h-7 flex items-center cursor-pointer rounded-full smooth-transition hover-scale"
                   onClick={() => {
                     toggleDayMode();
                     setIsMenuOpen(false);
@@ -180,19 +188,20 @@ export default function NavBar({
                 >
                   <div
                     className={`absolute inset-0 ${
-                      isDayMode ? "bg-gray-200" : "bg-gray-800"
-                    }  rounded-full transition duration-300 ease-in-out`}
+                      isDayMode ? "bg-sky-200" : "bg-slate-700"
+                    } rounded-full smooth-transition`}
                   ></div>
-                  <FiSun
-                    className={`absolute left-0 top-0 w-6 h-6 text-[#fff] transition-all duration-500 ${
-                      isDayMode ? "opacity-0" : "opacity-100"
+                  <div
+                    className={`absolute w-6 h-6 bg-white rounded-full shadow-md smooth-transition ${
+                      isDayMode ? "left-1" : "left-7"
                     }`}
-                  />
-                  <FiMoon
-                    className={`absolute right-0 top-0 w-6 h-6 text-black transition-all duration-500 ${
-                      isDayMode ? "opacity-100" : "opacity-0"
-                    }`}
-                  />
+                  >
+                    {isDayMode ? (
+                      <FiSun className="w-full h-full p-1 text-amber-500" />
+                    ) : (
+                      <FiMoon className="w-full h-full p-1 text-indigo-500" />
+                    )}
+                  </div>
                 </div>
               </li>
             </ul>

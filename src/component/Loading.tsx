@@ -1,11 +1,14 @@
 export default function Loading({ isLoading }: { isLoading: boolean }) {
   return (
     <div
-      className={`flex justify-center items-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${
+      className={`flex justify-center items-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 ${
         isLoading ? "visible" : "invisible"
       }`}
     >
-      <div className="w-12 h-12 border-t-4 border-blue-500 rounded-full animate-spin bg-white/60 dark:bg-black/60 backdrop-blur-md"></div>
+      <div className="relative">
+        <div className="w-16 h-16 border-4 border-transparent border-t-sky-500 border-r-blue-600 rounded-full animate-spin"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-gradient-to-r from-sky-400 to-blue-600 rounded-full animate-pulse opacity-20"></div>
+      </div>
     </div>
   );
 }

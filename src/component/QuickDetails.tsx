@@ -47,36 +47,58 @@ export function QuickDetails({
   return (
     <div
       className={`${
-        isDayMode ? "text-black" : "text-white"
-      } flex flex-col items-center`}
+        isDayMode ? "text-gray-900" : "text-white"
+      } flex flex-col items-center w-full animate-fadeIn`}
     >
       <h1
-        className={`mt-6 text-2xl text-center ${
-          isDayMode ? "text-black" : "text-white"
-        } `}
+        className={`mt-6 text-2xl text-center font-semibold ${
+          isDayMode ? "text-gray-800" : "text-gray-100"
+        }`}
       >
-        Address:{" "}
-        <span className="font-medium">
+        <span className={`${isDayMode ? "text-gray-600" : "text-gray-400"} font-normal text-lg`}>
+          Address:{" "}
+        </span>
+        <span className="font-bold text-gradient">
           {Number(data?.resolvedAddress.charAt(1))
             ? "Your Location"
             : data?.resolvedAddress}
         </span>
       </h1>
-      {getWeatherIcon()}
-      <div className="text-5xl font-bold mt-4">
+      <div className="animate-float mt-4">
+        {getWeatherIcon()}
+      </div>
+      <div className="text-6xl font-bold mt-6 bg-gradient-to-r from-sky-400 to-blue-600 bg-clip-text text-transparent">
         {convertFahrenheit(data?.currentConditions.temp)}
       </div>
-      <div className="text-xl font-semibold mt-5 text-center">
-        Last Time Update: {data?.currentConditions.datetime}
+      <div className={`text-sm font-medium mt-6 px-6 py-2 rounded-full ${
+        isDayMode ? "glass-day" : "glass-night"
+      }`}>
+        Last Update: {data?.currentConditions.datetime}
       </div>
-      <h1 className="text-2xl font-semibold mt-5">
+      <h2 className="text-3xl font-bold mt-6">
         {data?.currentConditions.conditions}
-      </h1>
-      <div className="text-xl font-semibold mt-5">
-        Sunrise: {data?.currentConditions.sunrise}
-      </div>
-      <div className="text-xl font-semibold mt-5">
-        Sunset: {data?.currentConditions.sunset}
+      </h2>
+      <div className={`grid grid-cols-2 gap-6 mt-8 w-full max-w-sm`}>
+        <div className={`px-6 py-4 rounded-2xl text-center smooth-transition ${
+          isDayMode ? "glass-day hover:bg-white/40" : "glass-night hover:bg-slate-700/40"
+        }`}>
+          <div className={`text-sm font-medium ${isDayMode ? "text-gray-600" : "text-gray-400"}`}>
+            Sunrise
+          </div>
+          <div className="text-xl font-bold mt-2">
+            {data?.currentConditions.sunrise}
+          </div>
+        </div>
+        <div className={`px-6 py-4 rounded-2xl text-center smooth-transition ${
+          isDayMode ? "glass-day hover:bg-white/40" : "glass-night hover:bg-slate-700/40"
+        }`}>
+          <div className={`text-sm font-medium ${isDayMode ? "text-gray-600" : "text-gray-400"}`}>
+            Sunset
+          </div>
+          <div className="text-xl font-bold mt-2">
+            {data?.currentConditions.sunset}
+          </div>
+        </div>
       </div>
     </div>
   );

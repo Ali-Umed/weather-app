@@ -19,36 +19,42 @@ export default function ToggleDayWeek({
   }
 
   return (
-    <div className="flex justify-between mt-2    ">
-      <span
+    <div className={`flex justify-center gap-4 mt-4 mb-6 p-1 rounded-xl ${
+      isDayMode ? "glass-day" : "glass-night"
+    }`}>
+      <button
         onClick={() => {
           if (data) {
             setStatus("day");
             setDay(0);
           }
         }}
-        className={` cursor-pointer   ${
-          status == "day" ? " border-b-2" : ""
-        }  ${
-          isDayMode
-            ? "text-gray-600  border-gray-600"
-            : "text-gray-300 border-white"
-        }  `}
+        className={`px-8 py-2 rounded-lg font-semibold smooth-transition hover-scale ${
+          status == "day"
+            ? isDayMode
+              ? "bg-sky-500 text-white shadow-md"
+              : "bg-sky-500 text-white shadow-md"
+            : isDayMode
+            ? "text-gray-700 hover:bg-white/40"
+            : "text-gray-300 hover:bg-slate-700/40"
+        }`}
       >
         Day
-      </span>
-      <span
+      </button>
+      <button
         onClick={handleWeekClick}
-        className={`  cursor-pointer   ${status == "week" ? " border-b-2" : ""} 
-        ${
-          isDayMode
-            ? "text-gray-600  border-gray-600"
-            : "text-gray-300 border-white"
-        }
-        `}
+        className={`px-8 py-2 rounded-lg font-semibold smooth-transition hover-scale ${
+          status == "week"
+            ? isDayMode
+              ? "bg-sky-500 text-white shadow-md"
+              : "bg-sky-500 text-white shadow-md"
+            : isDayMode
+            ? "text-gray-700 hover:bg-white/40"
+            : "text-gray-300 hover:bg-slate-700/40"
+        }`}
       >
         Week
-      </span>
+      </button>
     </div>
   );
 }

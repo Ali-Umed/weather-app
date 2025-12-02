@@ -3,48 +3,49 @@ import { GiHummingbird } from "react-icons/gi";
 export default function Footer({ isDayMode }: { isDayMode: boolean }) {
   return (
     <footer
-      className={`col-span-3 rounded-b-xl shadow-lg mt-8 ${
-        isDayMode ? "bg-white" : "bg-[rgb(36,40,51)]"
+      className={`col-span-3 rounded-b-3xl mt-8 smooth-transition ${
+        isDayMode ? "glass-day" : "glass-night"
       }`}
       id="footer"
+      style={{ boxShadow: "var(--shadow-md)" }}
     >
-      <div className={` ${isDayMode ? "bg-white" : "bg-[#00000000]"}   pt-1`}>
+      <div className="pt-1">
         <div
-          className={`container m-auto space-y-8 px-6 text-gray-600  md:px-12 lg:px-20   ${
-            isDayMode ? "bg-white" : "bg-[#00000000]"
-          }`}
+          className={`container m-auto space-y-8 px-6 text-gray-600 md:px-12 lg:px-20`}
         >
           <div
-            className={`grid grid-cols-8 gap-0 md:gap-0  ${
-              isDayMode ? "bg-white" : "bg-[#00000000]"
-            }  `}
+            className={`grid grid-cols-8 gap-0 md:gap-0`}
           >
             <div
-              className={` ${
+              className={`${
                 isDayMode
-                  ? "border-b border-b-black border-opacity-40"
+                  ? "border-b border-b-gray-300"
                   : "border-b border-b-gray-600"
-              } col-span-8   md:col-span-1 border-b border-b-black md:border-none lg:col-span-3 `}
+              } col-span-8 md:col-span-1 border-b md:border-none lg:col-span-3`}
             >
-              <div className="flex items-center  gap-6   py-3 md:block md:space-y-6 justify-center  md:py-0">
-                <div className="md:p-2 ">
-                  <GiHummingbird className="h-8 w-8 text-[#61b0e6]  mr-3" />
+              <div className="flex items-center gap-6 py-3 md:block md:space-y-6 justify-center md:py-0">
+                <div className="md:p-2">
+                  <GiHummingbird className="h-9 w-9 text-sky-500 hover-scale smooth-transition" />
                 </div>
               </div>
             </div>
-            <div className="col-span-7 md:col-span-6 lg:col-span-5 ">
+            <div className="col-span-7 md:col-span-6 lg:col-span-5">
               <div
-                className={`flex justify-between  py-2 pb-8 md:pl-16  ${
-                  isDayMode ? "bg-white" : "bg-[#00000000]"
-                }  `}
+                className={`flex justify-between items-center py-4 pb-8 md:pl-16`}
               >
-                <span className="text-center">&copy; Weather App 2024</span>
-                <div className="flex gap-2">
+                <span className={`text-center font-medium ${
+                  isDayMode ? "text-gray-700" : "text-gray-300"
+                }`}>
+                  © Weather App 2024
+                </span>
+                <div className="flex gap-3">
                   <a
                     href="https://github.com/Ali-Umed?tab=overview"
                     target="blank"
                     aria-label="github"
-                    className="hover:text-cyan-600"
+                    className={`smooth-transition hover-scale ${
+                      isDayMode ? "text-gray-600 hover:text-sky-600" : "text-gray-400 hover:text-sky-400"
+                    }`}
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -60,7 +61,9 @@ export default function Footer({ isDayMode }: { isDayMode: boolean }) {
                   <a
                     href="https://www.linkedin.com/in/ali-umed-076854286/"
                     target="blank"
-                    className="hover:text-cyan-600"
+                    className={`smooth-transition hover-scale ${
+                      isDayMode ? "text-gray-600 hover:text-sky-600" : "text-gray-400 hover:text-sky-400"
+                    }`}
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -73,7 +76,9 @@ export default function Footer({ isDayMode }: { isDayMode: boolean }) {
                     </svg>
                   </a>
                   <a
-                    className="hover:text-cyan-600"
+                    className={`smooth-transition hover-scale ${
+                      isDayMode ? "text-gray-600 hover:text-sky-600" : "text-gray-400 hover:text-sky-400"
+                    }`}
                     href="https://www.facebook.com/ali.umed.376?mibextid=ZbWKwL"
                     target="blank"
                   >
@@ -89,7 +94,9 @@ export default function Footer({ isDayMode }: { isDayMode: boolean }) {
                   </a>
 
                   <a
-                    className="hover:text-cyan-600"
+                    className={`smooth-transition hover-scale ${
+                      isDayMode ? "text-gray-600 hover:text-sky-600" : "text-gray-400 hover:text-sky-400"
+                    }`}
                     href="https://www.instagram.com/ali.umed99?igsh=dWQ5eThyMGRmM2Ju"
                     target="blank"
                   >
@@ -104,7 +111,9 @@ export default function Footer({ isDayMode }: { isDayMode: boolean }) {
                     </svg>
                   </a>
                   <a
-                    className="hover:text-cyan-600"
+                    className={`smooth-transition hover-scale ${
+                      isDayMode ? "text-gray-600 hover:text-sky-600" : "text-gray-400 hover:text-sky-400"
+                    }`}
                     href="https://www.youtube.com/@Ali_Umed"
                     target="blank"
                   >

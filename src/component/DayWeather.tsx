@@ -80,111 +80,142 @@ export default function DayWeather({
 
   return (
     <div
-      className={`rounded-xl shadow-lg p-6 mt-6 w-full max-w-2xl mx-auto ${
-        isDayMode ? "bg-white text-black" : "bg-[rgb(36,40,51)] text-white"
+      className={`rounded-2xl p-6 mt-6 w-full max-w-2xl mx-auto weather-card animate-fadeIn ${
+        isDayMode ? "glass-day" : "glass-night"
       }`}
     >
-      <div className="flex justify-between items-center mb-4">
+      <div className="flex justify-between items-center mb-6">
         <div className="flex items-center">
           {getWeatherIcon(icon)}
           <div>
-            <p className="text-[13px] lg:text-lg font-semibold">{conditions}</p>
-            <p className="text-sm">{datetime}</p>
+            <p className={`text-base lg:text-xl font-bold ${
+              isDayMode ? "text-gray-800" : "text-gray-100"
+            }`}>{conditions}</p>
+            <p className={`text-sm ${
+              isDayMode ? "text-gray-600" : "text-gray-400"
+            }`}>{datetime}</p>
           </div>
         </div>
-        <div className="text-lg font-semibold">
-          {convertToFahrenheit(tempmin)}°C - {convertToFahrenheit(tempmax)}°C
-          <FontAwesomeIcon
-            icon={faTimes}
-            className="ml-4 text-red-700 size-7 cursor-pointer"
+        <div className="flex items-center gap-4">
+          <div className={`text-lg font-bold ${
+            isDayMode ? "text-gray-800" : "text-gray-100"
+          }`}>
+            {convertToFahrenheit(tempmin)}°C - {convertToFahrenheit(tempmax)}°C
+          </div>
+          <button
+            className={`p-2 rounded-lg smooth-transition hover-scale ${
+              isDayMode ? "hover:bg-red-100 text-red-600" : "hover:bg-red-900/30 text-red-400"
+            }`}
             onClick={() => {
               setDay(null);
               setStatus("week");
             }}
-          />
+          >
+            <FontAwesomeIcon icon={faTimes} className="w-5 h-5" />
+          </button>
         </div>
       </div>
-      <hr className="my-4" />
-      <div className="grid grid-cols-2 gap-2 justify-items-center  ">
-        <div className="flex items-center  w-32 h-12 justify-start">
-          <WiSunrise className="w-12 h-12 mr-4 text-yellow-500" />
-          <span>{sunrise}</span>
+      
+      <hr className={`my-6 ${
+        isDayMode ? "border-gray-300" : "border-gray-600"
+      }`} />
+      
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <div className={`flex items-center p-3 rounded-xl smooth-transition ${
+          isDayMode ? "hover:bg-white/40" : "hover:bg-slate-700/40"
+        }`}>
+          <WiSunrise className="w-10 h-10 mr-3 text-amber-500" />
+          <span className={`text-sm font-medium ${isDayMode ? "text-gray-800" : "text-white"}`}>{sunrise}</span>
         </div>
-        <div className="flex items-center  w-32 h-12 justify-start ">
-          <WiSunset className="w-12 h-12 mr-4 text-yellow-600" />
-          <span>{sunset}</span>
+        <div className={`flex items-center p-3 rounded-xl smooth-transition ${
+          isDayMode ? "hover:bg-white/40" : "hover:bg-slate-700/40"
+        }`}>
+          <WiSunset className="w-10 h-10 mr-3 text-orange-500" />
+          <span className={`text-sm font-medium ${isDayMode ? "text-gray-800" : "text-white"}`}>{sunset}</span>
         </div>
-        <div className="flex items-center  w-32 h-12  justify-start">
+        <div className={`flex items-center p-3 rounded-xl smooth-transition ${
+          isDayMode ? "hover:bg-white/40" : "hover:bg-slate-700/40"
+        }`}>
           <FontAwesomeIcon
             icon={faSolarPanel}
-            className="mr-4 text-green-700  w-10 h-12"
+            className="mr-3 text-emerald-600 w-8 h-8"
           />
-          <span>{solarradiation}</span>
+          <span className={`text-sm font-medium ${isDayMode ? "text-gray-800" : "text-white"}`}>{solarradiation}</span>
         </div>
-        <div className="flex items-center  w-32 h-12 ">
+        <div className={`flex items-center p-3 rounded-xl smooth-transition ${
+          isDayMode ? "hover:bg-white/40" : "hover:bg-slate-700/40"
+        }`}>
           <FontAwesomeIcon
             icon={faSolarPanel}
-            className="mr-4 text-green-700   w-10 h-12 "
+            className="mr-3 text-emerald-600 w-8 h-8"
           />
-          <span>{solarenergy}</span>
+          <span className={`text-sm font-medium ${isDayMode ? "text-gray-800" : "text-white"}`}>{solarenergy}</span>
         </div>
-        <div className="flex items-center  w-32 h-12 ">
+        <div className={`flex items-center p-3 rounded-xl smooth-transition ${
+          isDayMode ? "hover:bg-white/40" : "hover:bg-slate-700/40"
+        }`}>
           <FontAwesomeIcon
             icon={faWind}
-            className="mr-4  text-gray-500 w-10 h-12 "
+            className={`mr-3 w-8 h-8 ${isDayMode ? "text-gray-600" : "text-gray-400"}`}
           />
-          <span>{pressure}</span>
+          <span className={`text-sm font-medium ${isDayMode ? "text-gray-800" : "text-white"}`}>{pressure}</span>
         </div>
-        <div className="flex items-center  w-32 h-12 ">
+        <div className={`flex items-center p-3 rounded-xl smooth-transition ${
+          isDayMode ? "hover:bg-white/40" : "hover:bg-slate-700/40"
+        }`}>
           <FontAwesomeIcon
             icon={faSmog}
-            className={`mr-4   w-10 h-12 ${
-              !isDayMode ? "text-white text-opacity-90" : "text-gray-500"
-            } `}
+            className={`mr-3 w-8 h-8 ${isDayMode ? "text-gray-600" : "text-gray-400"}`}
           />
-          <span>{dew}</span>
+          <span className={`text-sm font-medium ${isDayMode ? "text-gray-800" : "text-white"}`}>{dew}</span>
         </div>
-        <div className="flex items-center  w-32 h-12 ">
+        <div className={`flex items-center p-3 rounded-xl smooth-transition ${
+          isDayMode ? "hover:bg-white/40" : "hover:bg-slate-700/40"
+        }`}>
           <FontAwesomeIcon
             icon={faCloud}
-            className={`mr-4   w-10 h-12 ${
-              !isDayMode ? "text-white text-opacity-90" : "text-gray-500"
-            } `}
+            className={`mr-3 w-8 h-8 ${isDayMode ? "text-gray-600" : "text-gray-400"}`}
           />
-          <span>{cloudcover}</span>
+          <span className={`text-sm font-medium ${isDayMode ? "text-gray-800" : "text-white"}`}>{cloudcover}</span>
         </div>
-        <div className="flex items-center  w-32 h-12 ">
+        <div className={`flex items-center p-3 rounded-xl smooth-transition ${
+          isDayMode ? "hover:bg-white/40" : "hover:bg-slate-700/40"
+        }`}>
           <FontAwesomeIcon
             icon={faCloudSun}
-            className={`mr-4  w-10 h-12 ${
-              !isDayMode ? "text-white text-opacity-90" : "text-gray-500"
-            } `}
+            className={`mr-3 w-8 h-8 ${isDayMode ? "text-gray-600" : "text-gray-400"}`}
           />
-          <span>{visibility}</span>
+          <span className={`text-sm font-medium ${isDayMode ? "text-gray-800" : "text-white"}`}>{visibility}</span>
         </div>
-        <div className="flex items-center  w-32 h-12 ">
-          <WiWindy className="w-10 h-12 mr-4 text-gray-500" />
-          <span>{windspeed}</span>
+        <div className={`flex items-center p-3 rounded-xl smooth-transition ${
+          isDayMode ? "hover:bg-white/40" : "hover:bg-slate-700/40"
+        }`}>
+          <WiWindy className={`w-10 h-10 mr-3 ${isDayMode ? "text-gray-600" : "text-gray-400"}`} />
+          <span className={`text-sm font-medium ${isDayMode ? "text-gray-800" : "text-white"}`}>{windspeed}</span>
         </div>
-        <div className="flex items-center  w-32 h-12 ">
-          <WiStrongWind className="w-10 h-12 mr-4 text-gray-500" />
-          <span>{windgust}</span>
+        <div className={`flex items-center p-3 rounded-xl smooth-transition ${
+          isDayMode ? "hover:bg-white/40" : "hover:bg-slate-700/40"
+        }`}>
+          <WiStrongWind className={`w-10 h-10 mr-3 ${isDayMode ? "text-gray-600" : "text-gray-400"}`} />
+          <span className={`text-sm font-medium ${isDayMode ? "text-gray-800" : "text-white"}`}>{windgust}</span>
         </div>
-        <div className="flex items-center  w-32 h-12 ">
+        <div className={`flex items-center p-3 rounded-xl smooth-transition ${
+          isDayMode ? "hover:bg-white/40" : "hover:bg-slate-700/40"
+        }`}>
           <FontAwesomeIcon
             icon={faWind}
-            className="mr-4  w-10 h-12 text-gray-500 "
+            className={`mr-3 w-8 h-8 ${isDayMode ? "text-gray-600" : "text-gray-400"}`}
           />
-          <span>{severerisk}</span>
+          <span className={`text-sm font-medium ${isDayMode ? "text-gray-800" : "text-white"}`}>{severerisk}</span>
         </div>
-        <div className="flex items-center  w-32 h-12 ">
+        <div className={`flex items-center p-3 rounded-xl smooth-transition ${
+          isDayMode ? "hover:bg-white/40" : "hover:bg-slate-700/40"
+        }`}>
           <FontAwesomeIcon
             icon={faSmog}
-            className={`mr-4  w-10 h-12 ${
-              !isDayMode ? "text-white text-opacity-90" : "text-gray-500"
-            } `}
+            className={`mr-3 w-8 h-8 ${isDayMode ? "text-gray-600" : "text-gray-400"}`}
           />
-          <span>{humidity}</span>
+          <span className={`text-sm font-medium ${isDayMode ? "text-gray-800" : "text-white"}`}>{humidity}</span>
         </div>
       </div>
     </div>

@@ -111,14 +111,14 @@ function App() {
 
   return (
     <div
-      className={`  ${
-        isDayMode ? "bg-[#fff]" : "bg-[#000000]"
-      } min-h-screen flex justify-center items-center relative`}
+      className={`${
+        isDayMode ? "gradient-bg-day" : "gradient-bg-night"
+      } min-h-screen flex justify-center items-center relative smooth-transition-slow p-4`}
     >
       <div
         className={`${
-          isDayMode ? "bg-[#f1f9fe]" : "bg-[rgb(25,27,35)]"
-        } min-h-[950px] rounded-xl shadow-2xl w-full md:w-11/12 lg:w-11/12 xl:w-10/12 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 relative`}
+          isDayMode ? "glass-day" : "glass-night"
+        } min-h-[950px] rounded-3xl weather-card w-full md:w-11/12 lg:w-11/12 xl:w-10/12 2xl:w-9/12 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 relative overflow-hidden animate-fadeIn`}
       >
         <div className="col-span-3">
           <NavBar
@@ -129,7 +129,7 @@ function App() {
             getLocation={getLocation}
           />
         </div>
-        <div className="flex flex-col items-center h-full w-full z-0 col-span-2 md:col-span-1 p-2 sm:p-3 md:p-6 lg:py-20">
+        <div className="flex flex-col items-center h-full w-full z-0 col-span-2 md:col-span-1 p-4 sm:p-6 md:p-8 lg:py-20">
           <Error error={error} isDayMode={isDayMode} />
 
           {data === null ? (
@@ -138,7 +138,7 @@ function App() {
             <QuickDetails data={data} isDayMode={isDayMode} />
           )}
         </div>
-        <div className="col-span-2 p-2 sm:p-3 md:p-6">
+        <div className="col-span-2 p-4 sm:p-6 md:p-8">
           <Loading isLoading={isLoading} />
           {isLoading ? (
             <>
